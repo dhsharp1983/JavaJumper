@@ -18,24 +18,45 @@ public class Buildings
         this.buildings = buildings;
     }
 
+    public void createBuildingArray()
+    {
+        // create building 0
+        buildings[0] = new Building();
+        // System.out.println(buildings[0].display());
+        String buildingFileContents = FileIO.readFile("buildings.txt");
+        // System.out.println(buildingFileContents);
+        String[] parsedFileContents = buildingFileContents.split("\n");
+        for (int i = 1; i <= 15; i++)
+        {
+            buildings[i] = new Building();
+            buildings[i].setNumber(i);
+            buildings[i].setHeight(Integer.parseInt(parsedFileContents[i - 1].split(",")[0]));
+            buildings[i].setHasExitPortal(Boolean.parseBoolean(parsedFileContents[i - 1].split(",")[1]));
+            buildings[i].setHasFuelCell(Boolean.parseBoolean(parsedFileContents[i - 1].split(",")[2]));
+            buildings[i].setHasPoliceWeb(Boolean.parseBoolean(parsedFileContents[i - 1].split(",")[3]));
+            buildings[i].setHasFrozen(Boolean.parseBoolean(parsedFileContents[i - 1].split(",")[4]));
+            // System.out.println(buildings[i].display());
+        }
+    }
+
     // method to display "usable" buildings 1-15, not building 0
     public String displayBuildings()
     {
         String returnString = "";
-        for (int i = 1; i <= buildings.length; i++)
+        for (int i = 1; i < this.buildings.length; i++)
         {
-            returnString += buildings[i].display() + "\n";
+            returnString += this.buildings[i].display() + "\n";
         }
         return returnString;
     }
 
-    // method to display contents of entire building array, incl Building 0
+    // method to display contents of entire building array, incl Building 0  this.buildings.length
     public String displayFullBuildingArray()
     {
         String returnString = "";
-        for (int i = 0; i < buildings.length; i++)
+        for (int i = 0; i < this.buildings.length; i++)
         {
-            returnString += buildings[i].display() + "\n";
+            returnString += this.buildings[i].display() + "\n";
         }
         return returnString;
     }
@@ -43,7 +64,7 @@ public class Buildings
     // method to display a single building 
     public String displayOneBuilding(int index)
     {
-        return (buildings[index].display());
+        return (this.buildings[index].display());
     }
 
     // method to retrieve Building[]

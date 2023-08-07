@@ -1,9 +1,10 @@
+
 public class Test {
     public static void main(String[] args)
     {
         Player player = new Player();
+        Log.initErrorLog();
         player.setFuelCellsFound(1);
-        player.setOnBuilding(4);
         player.setPlayerName("Dave");
         System.out.println(player.display());
         Player player2 = new Player("DaVEE", 5, 55);
@@ -39,7 +40,17 @@ public class Test {
         // for (Building building : bld) {
         //     building.display();
         // }
-        buildings.createBuildingArray();
-        System.out.println(buildings.displayBuildings());
+        // buildings.createBuildingArray();
+        // System.out.println(buildings.displayBuildings());
+        try
+        {
+            Log.addToErrorLog("TestMessage");
+            Log.addToErrorLog("blah");
+        }
+        catch (Exception e)
+        {
+            System.out.println("Could not add to error log");
+        }
+        Log.addToErrorLog("TestMessage no trycatch ");
     }
 }

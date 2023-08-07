@@ -1,3 +1,8 @@
+// Class to generate log files for testing, exception reporting and debugging 
+// inspiration for BufferedWriter: https://beginnersbook.com/2014/01/how-to-append-to-a-file-in-java/
+// Author: David Sharp
+// Version: 1.0
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;

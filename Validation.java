@@ -1,3 +1,7 @@
+// Static class to perform input validations
+//  
+// Author: David Sharp
+// Version: 1.0
 public class Validation 
 {
     public boolean isStringBlank(String stringToValidate)

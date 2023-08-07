@@ -50,8 +50,8 @@ public class Buildings
         return returnString;
     }
 
-    // method to display contents of entire building array, incl Building 0  this.buildings.length
-    public String displayFullBuildingArray()
+    // method to display contents of entire building array, incl Building 0  
+    public String displayEntireBuildingArray()
     {
         String returnString = "";
         for (int i = 0; i < this.buildings.length; i++)
@@ -77,6 +77,63 @@ public class Buildings
     public Building getBuilding(int index)
     {
         return buildings[index];
+    }
+
+    // method to move the Frozen condition to a random building, get input paramater from RandomCalcs.selectRandomBuilding
+    public void moveFrozenBuilding(int targetBuilding)
+    {
+        for (int i = 1; i < this.buildings.length; i++)
+        {
+            this.buildings[i].setHasFrozen(false);
+        }
+        this.buildings[targetBuilding].setHasFrozen(true);
+        Log.addToFullLog(getClass() + ": Frozen Building moved to " + this.buildings[targetBuilding]);
+    }
+
+    // method to move the web trap to a random building, get input paramater from RandomCalcs.selectRandomBuilding
+    public void moveWebTrap(int targetBuilding)
+    {
+        for (int i = 1; i < this.buildings.length; i++)
+        {
+            this.buildings[i].setHasPoliceWeb(false);
+        }
+        this.buildings[targetBuilding].setHasPoliceWeb(true);
+        Log.addToFullLog(getClass() + ": Police web moved to " + this.buildings[targetBuilding]);
+    }
+
+    // method to respawn fuel cells on every third turn. 
+    // loops through array to reset FuelCell flag to false
+    // then, picks 3x random unique buildings, sets the flag on those buildings to true.
+    public void respawnFuelCells(int turn)
+    {
+        if (turn % 3 == 0)
+        {
+            int targetBuilding2 = 0;
+            int targetBuilding3 = 0;
+            int targetBuilding1 = RandomCalcs.selectRandomBuilding();
+            do
+            {
+                targetBuilding2 = RandomCalcs.selectRandomBuilding();
+                targetBuilding3 = RandomCalcs.selectRandomBuilding();
+            } while ((targetBuilding1 != targetBuilding2) && (targetBuilding1 != targetBuilding3) && (targetBuilding2 != targetBuilding3));
+            for (int i = 1; i < this.buildings.length; i++)
+            {
+                this.buildings[i].setHasFuelCell(false);
+            }
+            this.buildings[targetBuilding1].setHasFuelCell(true);
+            this.buildings[targetBuilding2].setHasFuelCell(true);
+            this.buildings[targetBuilding3].setHasFuelCell(true);
+            Log.addToFullLog(getClass() + ": Fuel Cells added to buildings " + targetBuilding1 + " " + targetBuilding2 + " " + targetBuilding3);
+        }
+    }
+
+    // method to change the building heights following a turn 
+    public void randomiseBuildingHeights()
+    {
+        for (int i = 1; i < this.buildings.length; i++)
+        {
+            this.buildings[i].setHeight(RandomCalcs.getRandomBuildingHeight());
+        }
     }
 
     // method to set Building[]

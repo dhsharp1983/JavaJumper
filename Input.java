@@ -1,3 +1,9 @@
+// Static class to get input and perform exception reporting 
+// If input (try/catch) fails, a default value is passed. 
+// Validation should be performed by the methods in Validation. 
+// Author: David Sharp
+// Version: 1.0
+
 import java.util.Scanner;
 
 public class Input

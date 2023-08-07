@@ -1,3 +1,7 @@
+// Static class to return random integers and booleans as required by the game  
+// Author: David Sharp
+// Version: 1.0
+
 import java.util.Random;
 
 public class RandomCalcs

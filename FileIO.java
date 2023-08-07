@@ -1,4 +1,6 @@
-
+// Static class to read files and write files 
+// Author: David Sharp
+// Version: 1.0
 
 import java.io.FileReader;
 import java.io.PrintWriter;

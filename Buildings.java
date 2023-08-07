@@ -106,15 +106,16 @@ public class Buildings
         {
             this.buildings[i].setHasPoliceWeb(false);
         }
-        do
-        {
-            if (this.buildings[targetBuilding].getHasFrozen() == false)
-            {
-                this.buildings[targetBuilding].setHasPoliceWeb(true);
-                continueLoop = false;
-            }
+        this.buildings[targetBuilding].setHasPoliceWeb(true);
+        // do
+        // {
+        //     if (this.buildings[targetBuilding].getHasFrozen() == false)
+        //     {
+        //         this.buildings[targetBuilding].setHasPoliceWeb(true);
+        //         continueLoop = false;
+        //     }
 
-        } while (continueLoop = true);
+        // } while (continueLoop = true);
         Log.addToFullLog(getClass() + ": Police web moved to " + this.buildings[targetBuilding]);
     }
 

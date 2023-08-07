@@ -7,14 +7,6 @@ public class RenderDisplay
     private final String[] PLAYER_CHARS = new String[]{"~o/","/| ","/ \\"};
     private final String[] BUILDING_CHARS = new String[]{"---","==="};
 
-    public RenderDisplay()
-    {
-        this.jumper = new Jumper();
-        welcomeScreen = "";
-        instructionScreen = "";
-        endScreen = "";
-    }
-
     public RenderDisplay(Jumper jumper)
     {
         this.jumper = jumper;
@@ -32,7 +24,7 @@ public class RenderDisplay
 
     public void test()
     {
-        jumper.buildings.displayBuildings();
+        jumper.getBuildings().displayBuildings();
     }
 
     public void printWelcomeScreen()

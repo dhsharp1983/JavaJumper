@@ -25,7 +25,14 @@ public class Jumper
         this.jumpPack = new JumpPack();
     }
 
-    public String getPlayerName()
+    public Buildings getBuildings()
+    {
+        return this.buildings;
+    }
+
+    
+
+    public String inputPlayerName()
     {
         String playerName = "";
         try 
@@ -52,18 +59,28 @@ public class Jumper
         System.out.println("Printing building array");
         System.out.println(jumper.buildings.displayBuildings());
         System.out.println("\nRunning Calcs, reprinting:");
+        System.out.println("moving frozen building");
         jumper.buildings.moveFrozenBuilding(RandomCalcs.selectRandomBuilding());
+        System.out.println("moving web trap");
         jumper.buildings.moveWebTrap(RandomCalcs.selectRandomBuilding());
+        System.out.println("changing building heights");
         jumper.buildings.randomiseBuildingHeights();
-        jumper.buildings.respawnFuelCells(3);
-        System.out.println(jumper.buildings.displayBuildings());
-        System.out.println("\nTesting access from renderDisplay:");
-        System.out.println(renderDisplay.jumper.buildings.displayBuildings());
+        System.out.println("moving fuel cells");
+        for (int i = 0; i < 20; i++) {
+            System.out.print("Iter " + i + ": ");
+            jumper.buildings.respawnFuelCells(3);
+        }
+        
+        
+        // System.out.println(jumper.buildings.displayBuildings());
+        // System.out.println("\nTesting access from renderDisplay:");
+        // renderDisplay.test();
+        
     } // end of Main 
 
     public static void startGame(Jumper jumper)
     {
-        String playerName  = jumper.getPlayerName();
+        String playerName  = jumper.inputPlayerName();
         RenderDisplay startGameRenderDisplay = new RenderDisplay(jumper);
         if (Validation.isNameLengthOK(playerName, 3, 12) == true)
         {
@@ -75,7 +92,7 @@ public class Jumper
             {
                 startGameRenderDisplay.printWelcomeScreen();
                 System.out.println("\nPlease enter a name of 3 to 12 characters!\n");
-                playerName  = jumper.getPlayerName();
+                playerName  = jumper.inputPlayerName();
                 if (Validation.isNameLengthOK(playerName, 3, 12) == true)
                     jumper.player.setPlayerName(playerName);
             } while (playerName == "");

@@ -22,21 +22,25 @@ public class JumpPack
     // charge battery if fuel cell found. If fuel cell found, battery cannot exceed max.
     public void chargeBattery(int batteryPoints)
     {
+        int oldBatteryLevel = this.batteryLevel;
         this.batteryLevel += batteryPoints;
         if (this.batteryLevel > 20)
         {
             this.batteryLevel = MAX_BATTERY_LEVEL;
         }
+        Log.addToFullLog("Battery Charged from " + oldBatteryLevel + " to " + this.batteryLevel);
     }
 
     // deplete battery during play. If battery runs out, cannot go under 0.
     public void depleteBattery(int batteryPoints)
     {
+        int oldBatteryLevel = this.batteryLevel;
         this.batteryLevel -= batteryPoints;
         if (this.batteryLevel < 0)
         {
             this.batteryLevel = 0;
         }
+        Log.addToFullLog(getClass() + ": Battery depleted from " + oldBatteryLevel + " to " + this.batteryLevel);
     }
 
     // display method 

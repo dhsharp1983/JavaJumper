@@ -4,7 +4,7 @@
 // Version: 1.0
 public class Validation 
 {
-    public boolean isStringBlank(String stringToValidate)
+    public static boolean isStringBlank(String stringToValidate)
     {
         // boolean validation should return True for a bad input 
         boolean validation = true;
@@ -18,7 +18,7 @@ public class Validation
         }
     }
 
-    public boolean isCharBlank(char charToValidate)
+    public static boolean isCharBlank(char charToValidate)
         {
         // boolean validation should return True for a bad input 
         boolean validation = true;
@@ -32,7 +32,7 @@ public class Validation
         }
     }
 
-    public boolean isNameLengthOK(String inputString, int minLength, int maxLength)
+    public static boolean isNameLengthOK(String inputString, int minLength, int maxLength)
     {
         // lengthWithinRange should return false for a bad input 
         boolean validation = false;
@@ -42,19 +42,19 @@ public class Validation
             return (validation = false);
     }
 
-    public boolean isIntGreaterThanZero (int integerToValidate)
+    public static boolean isIntNotZero (int integerToValidate)
     {
         boolean validation = false;
-        if (integerToValidate > 0)
+        if (integerToValidate != 0)
             return (validation = true);
         else
             return (validation = false);
     }
 
-    public boolean isDoubleGreaterThanZero (double doubleToValidate)
+    public static boolean isDoubleNotZero (double doubleToValidate)
     {
         boolean validation = false;
-        if (doubleToValidate > 0)
+        if (doubleToValidate != 0)
             return (validation = true);
         else
             return (validation = false);

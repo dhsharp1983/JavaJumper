@@ -54,5 +54,13 @@ public class Test {
             System.out.println("Could not add to error log");
         }
         Log.addToErrorLog("TestMessage no trycatch ");
+
+        buildings.displayBuildings();
+        System.out.println("\nRUNNING BUILDINGS METHODS\n");
+        buildings.moveFrozenBuilding(RandomCalcs.selectRandomBuilding());
+        buildings.moveWebTrap(RandomCalcs.selectRandomBuilding());
+        buildings.randomiseBuildingHeights();
+        buildings.respawnFuelCells(3);
+        buildings.displayBuildings();
     }
 }

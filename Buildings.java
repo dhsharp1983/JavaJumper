@@ -22,9 +22,16 @@ public class Buildings
     {
         // create building 0
         buildings[0] = new Building();
-        // System.out.println(buildings[0].display());
-        String buildingFileContents = FileIO.readFile("buildings.txt");
-        // System.out.println(buildingFileContents);
+        String buildingFileContents = "";
+        try 
+        {
+            buildingFileContents = FileIO.readFile("buildings.txt");
+        } 
+        catch (Exception e) 
+        {
+            Log.addToErrorLog(getClass() + ": Error reading buildings.txt");
+        }
+        
         String[] parsedFileContents = buildingFileContents.split("\n");
         for (int i = 1; i <= 15; i++)
         {
@@ -46,6 +53,7 @@ public class Buildings
         for (int i = 1; i < this.buildings.length; i++)
         {
             returnString += this.buildings[i].display() + "\n";
+            // System.out.println(this.buildings[i].display());
         }
         return returnString;
     }
@@ -93,11 +101,20 @@ public class Buildings
     // method to move the web trap to a random building, get input paramater from RandomCalcs.selectRandomBuilding
     public void moveWebTrap(int targetBuilding)
     {
+        boolean continueLoop = true;
         for (int i = 1; i < this.buildings.length; i++)
         {
             this.buildings[i].setHasPoliceWeb(false);
         }
-        this.buildings[targetBuilding].setHasPoliceWeb(true);
+        do
+        {
+            if (this.buildings[targetBuilding].getHasFrozen() == false)
+            {
+                this.buildings[targetBuilding].setHasPoliceWeb(true);
+                continueLoop = false;
+            }
+
+        } while (continueLoop = true);
         Log.addToFullLog(getClass() + ": Police web moved to " + this.buildings[targetBuilding]);
     }
 
@@ -115,7 +132,8 @@ public class Buildings
             {
                 targetBuilding2 = RandomCalcs.selectRandomBuilding();
                 targetBuilding3 = RandomCalcs.selectRandomBuilding();
-            } while ((targetBuilding1 != targetBuilding2) && (targetBuilding1 != targetBuilding3) && (targetBuilding2 != targetBuilding3));
+                System.out.println(targetBuilding1 + " " + targetBuilding2 + " " + targetBuilding3);
+            } while ((targetBuilding1 == targetBuilding2) || (targetBuilding1 == targetBuilding3) || (targetBuilding2 == targetBuilding3));
             for (int i = 1; i < this.buildings.length; i++)
             {
                 this.buildings[i].setHasFuelCell(false);

@@ -5,12 +5,13 @@
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FileIO
 {
     // Static method to read a file and return contents as String
-    public static String readFile(String filename)
+    public static String readFile(String filename) throws IOException, Exception
     {
         String fileContents = "";
         try

@@ -9,10 +9,7 @@
 
 import java.util.concurrent.TimeUnit;
 
-import javax.swing.JFrame;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 
 public class Jumper 
@@ -57,6 +54,7 @@ public class Jumper
         GameEngine gameEngine = jumper.getGameEngine();
         Player player = gameEngine.getPlayer();
 
+
         
         // start the game 
         renderDisplay.printWelcomeScreen();
@@ -75,20 +73,14 @@ public class Jumper
         System.out.println("Select a move: press left arrow for left; right arrow for right; enter to skip");
         
         
-        
-        
-
-
-
-
-        
+    
     // end of Main     
     } 
 
-    public void keyPressed(KeyEvent e)
-    {
-        System.out.println("keypress: " + e.getKeyCode() + " " + e.getKeyChar());
-    }
+
+
+
+
 
     public void startGame()
     {

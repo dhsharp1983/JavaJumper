@@ -19,6 +19,17 @@ public class JumpCalcs {
         this.jumpRightFuelNeeded = 0;
     }
 
+    // non-default constructor - player always starts at left so some assumptions can be made 
+    public JumpCalcs(int jumpDistance, int jumpRightFuelNeeded)
+    {
+        this.canJumpLeft = false; // default ok 
+        this.canJumpRight = false; // default ok 
+        this.canJumpAtAll = false; // default ok 
+        this.jumpDistance = jumpDistance; // needed 
+        this.jumpLeftFuelNeeded = 0; // default ok 
+        this.jumpRightFuelNeeded = jumpRightFuelNeeded; // needed 
+    }
+
     public JumpCalcs(boolean canJumpLeft, boolean canJumpRight, boolean canJumpAtAll, int jumpDistance, int jumpLeftFuelNeeded, int jumpRightFuelNeeded)
     {
         this.canJumpLeft = canJumpLeft;
@@ -38,72 +49,7 @@ public class JumpCalcs {
         return returnString;
     }
 
-    public void doJumpCalculations(boolean onFrozenBuilding, boolean onPoliceWeb, int currentHeight, int currentBuilding, Buildings buildings)
-    {
-        // can only jump left to building 1 and not past it 
-        if ((currentBuilding - currentHeight) < 1)
-            this.canJumpLeft = false;
-        else if ((currentBuilding - currentHeight) >= 1)
-            this.canJumpLeft = true;
 
-        // can only jump right to building 15 and not past it
-        if ((currentBuilding + currentHeight) > 15)
-            this.canJumpRight = false;
-        else if ((currentBuilding + currentHeight) <= 15)
-            this.canJumpRight = true;
-
-        // jump distance is building height
-        this.jumpDistance = currentHeight;
-        
-        // calculate fuel burn - absolute value of (bldA height - bldB height)
-        int bldToLeftHeight = 0;
-        int bldToRightHeight = 0;
-        if (onPoliceWeb == true)
-        {
-            jumpLeftFuelNeeded = 5;
-            jumpRightFuelNeeded = 5;
-        }
-
-        try 
-        {
-            bldToLeftHeight = buildings.getAllBuildings()[currentBuilding - currentHeight].getHeight();
-        } 
-        catch (Exception e) 
-        {
-            Log.addToErrorLog("JumpCalcs - Array Probably Out of Bounds: " + e.getMessage());
-            // canJumpLeft = false;
-        }
-        finally
-        {
-            jumpLeftFuelNeeded += bldToLeftHeight;
-        }
-
-        try 
-        {
-            bldToRightHeight = buildings.getAllBuildings()[currentBuilding + currentHeight].getHeight();
-        } 
-        catch (Exception e) 
-        {
-            Log.addToErrorLog("doJumpCalculations - Array Probably Out of Bounds: " + e.getMessage());
-        }
-        finally
-        {
-            jumpRightFuelNeeded += bldToRightHeight;
-        }
-        
-        // player can't move if on frozen building
-        if (onFrozenBuilding == true)
-        {
-            this.canJumpAtAll = false;
-        }
-        else if (onFrozenBuilding == false)
-        {
-            this.canJumpAtAll = true;
-        }
-
-        // log at end 
-        Log.addToFullLog("JumpCalculations: " + this.display());
-    }
 
     public boolean getCanJumpLeft()
     {

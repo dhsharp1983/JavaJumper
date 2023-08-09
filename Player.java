@@ -27,6 +27,44 @@ public class Player
         return ("Player Name: " + this.playerName + "; Player Fuel Cells Found: " + this.fuelCellsFound);
     }
 
+    public String inputPlayerName()
+    {
+        String name = "";
+        try 
+        {
+            name = Input.acceptStringInput("Enter Player Name:");
+        } 
+        catch (Exception e) 
+        {
+            Log.addToErrorLog(getClass() + ": Error getting player name: " + e.getMessage());
+            name = "";
+        }
+        if (Validation.isNameLengthOK(name, 3, 12) == true)
+        {
+            this.playerName = name;
+        }
+        else
+        {
+            do
+            {
+                System.out.println("\nPlease enter a name of 3 to 12 characters!\n");
+                try 
+                {
+                    name = Input.acceptStringInput("Enter Player Name:");
+                } 
+                catch (Exception e) 
+                {
+                    Log.addToErrorLog(getClass() + ": Error getting player name: " + e.getMessage());
+                    name = "";
+                }
+                if (Validation.isNameLengthOK(name, 3, 12) == true)
+                    this.playerName = name;
+            } while (playerName == "");
+        }
+        System.out.println("Welcome " + playerName + "!");
+        return playerName;
+    }
+
     // retrieve how many fuel cells the player has found 
     public int getFuelCellsFound()
     {

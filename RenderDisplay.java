@@ -1,6 +1,7 @@
 public class RenderDisplay 
 {
     private Jumper jumper;
+    private GameEngine gameEngine;
     private String welcomeScreen;
     private String instructionScreen;
     private String endScreen;
@@ -10,6 +11,7 @@ public class RenderDisplay
     public RenderDisplay(Jumper jumper)
     {
         this.jumper = jumper;
+        this.gameEngine = jumper.getGameEngine();
         welcomeScreen = "";
         instructionScreen = "";
         endScreen = "";
@@ -24,7 +26,8 @@ public class RenderDisplay
 
     public void test()
     {
-        jumper.getBuildings().displayBuildings();
+        // jumper.getBuildings().displayBuildings();
+        
     }
 
     public void printWelcomeScreen()

@@ -5,7 +5,8 @@ public class JumpCalcs {
     private boolean canJumpRight;
     private boolean canJumpAtAll;
     private int jumpDistance;
-    private int jumpFuelNeeded;
+    private int jumpLeftFuelNeeded;
+    private int jumpRightFuelNeeded;
 
 
     public JumpCalcs()
@@ -14,19 +15,30 @@ public class JumpCalcs {
         this.canJumpRight = false;
         this.canJumpAtAll = false;
         this.jumpDistance = 0;
-        this.jumpFuelNeeded = 0;
+        this.jumpLeftFuelNeeded = 0;
+        this.jumpRightFuelNeeded = 0;
     }
 
-    public JumpCalcs(boolean canJumpLeft, boolean canJumpRight, boolean canJumpAtAll, int jumpDistance, int jumpFuelNeeded)
+    public JumpCalcs(boolean canJumpLeft, boolean canJumpRight, boolean canJumpAtAll, int jumpDistance, int jumpLeftFuelNeeded, int jumpRightFuelNeeded)
     {
         this.canJumpLeft = canJumpLeft;
         this.canJumpRight = canJumpRight;
         this.canJumpAtAll = canJumpAtAll;
         this.jumpDistance = jumpDistance;
-        this.jumpFuelNeeded = jumpFuelNeeded;
+        this.jumpLeftFuelNeeded = jumpLeftFuelNeeded;
+        this.jumpRightFuelNeeded = jumpRightFuelNeeded;
     }
 
-    public void doJumpCalculations(boolean onFrozenBuilding, boolean onPoliceWeb, int currentHeight, int currentBuilding)
+    public String display()
+    {
+        String returnString = "canJumpLeft:" + this.canJumpLeft + ";  canJumpRight:" + this.canJumpRight
+         + ";  canJumpAtAll:" + this.canJumpAtAll + ";  jumpDistance:" + this.jumpDistance
+         + ";  jumpLeftFuelNeeded:" + this.jumpLeftFuelNeeded + ";  jumpRightFuelNeeded:" + this.jumpRightFuelNeeded;
+
+        return returnString;
+    }
+
+    public void doJumpCalculations(boolean onFrozenBuilding, boolean onPoliceWeb, int currentHeight, int currentBuilding, Buildings buildings)
     {
         // can only jump left to building 1 and not past it 
         if ((currentBuilding - currentHeight) < 1)
@@ -39,15 +51,58 @@ public class JumpCalcs {
             this.canJumpRight = false;
         else if ((currentBuilding + currentHeight) <= 15)
             this.canJumpRight = true;
+
+        // jump distance is building height
+        this.jumpDistance = currentHeight;
         
         // calculate fuel burn - absolute value of (bldA height - bldB height)
-        if (onPoliceWeb = true)
+        int bldToLeftHeight = 0;
+        int bldToRightHeight = 0;
+        if (onPoliceWeb == true)
         {
-            jumpFuelNeeded = 5;
+            jumpLeftFuelNeeded = 5;
+            jumpRightFuelNeeded = 5;
+        }
+
+        try 
+        {
+            bldToLeftHeight = buildings.getAllBuildings()[currentBuilding - currentHeight].getHeight();
+        } 
+        catch (Exception e) 
+        {
+            Log.addToErrorLog("JumpCalcs - Array Probably Out of Bounds: " + e.getMessage());
+            // canJumpLeft = false;
+        }
+        finally
+        {
+            jumpLeftFuelNeeded += bldToLeftHeight;
+        }
+
+        try 
+        {
+            bldToRightHeight = buildings.getAllBuildings()[currentBuilding + currentHeight].getHeight();
+        } 
+        catch (Exception e) 
+        {
+            Log.addToErrorLog("doJumpCalculations - Array Probably Out of Bounds: " + e.getMessage());
+        }
+        finally
+        {
+            jumpRightFuelNeeded += bldToRightHeight;
         }
         
-        
-        // 
+        // player can't move if on frozen building
+        if (onFrozenBuilding == true)
+        {
+            this.canJumpAtAll = false;
+        }
+        else if (onFrozenBuilding == false)
+        {
+            this.canJumpAtAll = true;
+        }
+
+        // log at end 
+        Log.addToFullLog("JumpCalculations: " + this.display());
     }
 
     public boolean getCanJumpLeft()
@@ -70,9 +125,14 @@ public class JumpCalcs {
         return this.jumpDistance;
     }
 
-    public int getJumpFuelNeeded()
+    public int getJumpLeftFuelNeeded()
     {
-        return this.jumpFuelNeeded;
+        return this.jumpLeftFuelNeeded;
+    }
+
+    public int getJumpRightFuelNeeded()
+    {
+        return this.jumpRightFuelNeeded;
     }
 
     public void setCanJumpLeft(boolean canJumpLeft)
@@ -95,9 +155,14 @@ public class JumpCalcs {
         this.jumpDistance = jumpDistance;
     }
 
-    public void setJumpFuelNeeded(int jumpFuelNeeded)
+    public void setJumpLeftFuelNeeded(int jumpLeftFuelNeeded)
     {
-        this.jumpFuelNeeded = jumpFuelNeeded;
+        this.jumpLeftFuelNeeded = jumpLeftFuelNeeded;
+    }
+
+    public void setJumpRightFuelNeeded(int jumpRightFuelNeeded)
+    {
+        this.jumpRightFuelNeeded = jumpRightFuelNeeded;
     }
 
 

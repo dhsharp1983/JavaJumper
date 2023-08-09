@@ -79,3 +79,25 @@ class Buildings: Fuel Cells added to buildings 5 12 9
 class Buildings: Fuel Cells added to buildings 9 4 8
 class Buildings: Fuel Cells added to buildings 9 15 5
 class Buildings: Fuel Cells added to buildings 10 7 12
+class Buildings: Frozen Building moved to Building@6576fe71
+class Buildings: Police web moved to Building@6193b845
+class Buildings: Fuel Cells added to buildings 1 10 8
+class Buildings: Fuel Cells added to buildings 8 14 4
+class Buildings: Fuel Cells added to buildings 12 6 14
+class Buildings: Fuel Cells added to buildings 13 8 15
+class Buildings: Fuel Cells added to buildings 1 15 2
+class Buildings: Fuel Cells added to buildings 14 11 3
+class Buildings: Fuel Cells added to buildings 2 14 3
+class Buildings: Fuel Cells added to buildings 4 9 6
+class Buildings: Fuel Cells added to buildings 14 1 8
+class Buildings: Fuel Cells added to buildings 4 6 3
+class Buildings: Fuel Cells added to buildings 8 13 15
+class Buildings: Fuel Cells added to buildings 13 1 10
+class Buildings: Fuel Cells added to buildings 7 4 3
+class Buildings: Fuel Cells added to buildings 14 4 6
+class Buildings: Fuel Cells added to buildings 5 7 6
+class Buildings: Fuel Cells added to buildings 5 12 10
+class Buildings: Fuel Cells added to buildings 7 1 12
+class Buildings: Fuel Cells added to buildings 2 10 4
+class Buildings: Fuel Cells added to buildings 15 14 5
+class Buildings: Fuel Cells added to buildings 12 9 5

@@ -49,32 +49,11 @@ public class Jumper
 
     public static void main(String[] args)
     {
+        // initialise - create objects and call startGame()
         Jumper jumper = new Jumper();
         RenderDisplay renderDisplay = new RenderDisplay(jumper);
-        
         jumper.buildings.createBuildingArray();
         startGame(jumper);
-
-        System.out.println("Player name is " + jumper.player.getPlayerName());
-        System.out.println("Printing building array");
-        System.out.println(jumper.buildings.displayBuildings());
-        System.out.println("\nRunning Calcs, reprinting:");
-        System.out.println("moving frozen building");
-        jumper.buildings.moveFrozenBuilding(RandomCalcs.selectRandomBuilding());
-        System.out.println("moving web trap");
-        jumper.buildings.moveWebTrap(RandomCalcs.selectRandomBuilding());
-        System.out.println("changing building heights");
-        jumper.buildings.randomiseBuildingHeights();
-        System.out.println("moving fuel cells");
-        for (int i = 0; i < 20; i++) {
-            System.out.print("Iter " + i + ": ");
-            jumper.buildings.respawnFuelCells(3);
-        }
-        
-        
-        // System.out.println(jumper.buildings.displayBuildings());
-        // System.out.println("\nTesting access from renderDisplay:");
-        // renderDisplay.test();
         
     } // end of Main 
 

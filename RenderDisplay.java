@@ -1,3 +1,5 @@
+// Class to build graphics and print text
+// Inspriation for clearScreen method: https://www.javatpoint.com/how-to-clear-screen-in-java
 public class RenderDisplay 
 {
     private Jumper jumper;
@@ -5,8 +7,11 @@ public class RenderDisplay
     private String welcomeScreen;
     private String instructionScreen;
     private String endScreen;
+    private BuildingGraphic[] buildingGraphics;
+    private String[] displayLines;
     private final String[] PLAYER_CHARS = new String[]{"~o/","/| ","/ \\"};
-    private final String[] BUILDING_CHARS = new String[]{"---","==="};
+    private final String[] BUILDING_CHARS = new String[]{"   ","---","===","fff","www"};
+    private final String[] FUEL_CHARS = new String[]{" @ "};
 
     public RenderDisplay(Jumper jumper)
     {
@@ -15,6 +20,12 @@ public class RenderDisplay
         welcomeScreen = "";
         instructionScreen = "";
         endScreen = "";
+    }
+
+    public void clearScreen()
+    {
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
     }
 
     public void renderTextDisplay()

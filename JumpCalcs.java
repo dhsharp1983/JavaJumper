@@ -7,6 +7,8 @@ public class JumpCalcs {
     private int jumpDistance;
     private int jumpLeftFuelNeeded;
     private int jumpRightFuelNeeded;
+    private int jumpLeftTargetBuildingNumber;
+    private int jumpRightTargetBuildingNumber;
 
 
     public JumpCalcs()

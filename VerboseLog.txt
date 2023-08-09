@@ -1,103 +1,17 @@
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6193b845
-class Buildings: Fuel Cells added to buildings 15 8 8
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6193b845
-class Buildings: Fuel Cells added to buildings 2 9 2
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6576fe71
-class Buildings: Fuel Cells added to buildings 7 15 15
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6193b845
-class Buildings: Fuel Cells added to buildings 1 1 1
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6193b845
-class Buildings: Fuel Cells added to buildings 10 6 6
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6193b845
-class Buildings: Fuel Cells added to buildings 15 6 13
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6193b845
-class Buildings: Fuel Cells added to buildings 6 2 3
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6193b845
-class Buildings: Fuel Cells added to buildings 11 3 8
-class Buildings: Fuel Cells added to buildings 2 4 3
-class Buildings: Fuel Cells added to buildings 9 6 5
-class Buildings: Fuel Cells added to buildings 10 2 7
-class Buildings: Fuel Cells added to buildings 7 5 4
-class Buildings: Fuel Cells added to buildings 13 11 12
-class Buildings: Fuel Cells added to buildings 9 12 3
-class Buildings: Fuel Cells added to buildings 2 4 14
-class Buildings: Fuel Cells added to buildings 13 1 5
-class Buildings: Fuel Cells added to buildings 6 3 2
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6193b845
-class Buildings: Fuel Cells added to buildings 13 3 7
-class Buildings: Fuel Cells added to buildings 10 3 8
-class Buildings: Fuel Cells added to buildings 2 5 1
-class Buildings: Fuel Cells added to buildings 11 4 14
-class Buildings: Fuel Cells added to buildings 6 5 11
-class Buildings: Fuel Cells added to buildings 6 8 14
-class Buildings: Fuel Cells added to buildings 11 5 2
-class Buildings: Fuel Cells added to buildings 6 15 3
-class Buildings: Fuel Cells added to buildings 8 13 7
-class Buildings: Fuel Cells added to buildings 4 7 8
-class Buildings: Fuel Cells added to buildings 5 8 11
-class Buildings: Fuel Cells added to buildings 9 11 5
-class Buildings: Fuel Cells added to buildings 9 10 13
-class Buildings: Fuel Cells added to buildings 2 15 8
-class Buildings: Fuel Cells added to buildings 2 1 3
-class Buildings: Fuel Cells added to buildings 8 1 11
-class Buildings: Fuel Cells added to buildings 11 7 2
-class Buildings: Fuel Cells added to buildings 12 11 5
-class Buildings: Fuel Cells added to buildings 10 14 7
-class Buildings: Fuel Cells added to buildings 12 9 8
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6193b845
-class Buildings: Fuel Cells added to buildings 6 8 14
-class Buildings: Fuel Cells added to buildings 5 8 7
-class Buildings: Fuel Cells added to buildings 12 4 8
-class Buildings: Fuel Cells added to buildings 6 2 11
-class Buildings: Fuel Cells added to buildings 15 6 7
-class Buildings: Fuel Cells added to buildings 14 1 2
-class Buildings: Fuel Cells added to buildings 5 6 1
-class Buildings: Fuel Cells added to buildings 12 7 13
-class Buildings: Fuel Cells added to buildings 8 5 15
-class Buildings: Fuel Cells added to buildings 1 7 3
-class Buildings: Fuel Cells added to buildings 15 2 12
-class Buildings: Fuel Cells added to buildings 3 10 11
-class Buildings: Fuel Cells added to buildings 5 14 11
-class Buildings: Fuel Cells added to buildings 14 11 10
-class Buildings: Fuel Cells added to buildings 3 1 8
-class Buildings: Fuel Cells added to buildings 7 12 11
-class Buildings: Fuel Cells added to buildings 5 12 9
-class Buildings: Fuel Cells added to buildings 9 4 8
-class Buildings: Fuel Cells added to buildings 9 15 5
-class Buildings: Fuel Cells added to buildings 10 7 12
-class Buildings: Frozen Building moved to Building@6576fe71
-class Buildings: Police web moved to Building@6193b845
-class Buildings: Fuel Cells added to buildings 1 10 8
-class Buildings: Fuel Cells added to buildings 8 14 4
-class Buildings: Fuel Cells added to buildings 12 6 14
-class Buildings: Fuel Cells added to buildings 13 8 15
-class Buildings: Fuel Cells added to buildings 1 15 2
-class Buildings: Fuel Cells added to buildings 14 11 3
-class Buildings: Fuel Cells added to buildings 2 14 3
-class Buildings: Fuel Cells added to buildings 4 9 6
-class Buildings: Fuel Cells added to buildings 14 1 8
-class Buildings: Fuel Cells added to buildings 4 6 3
-class Buildings: Fuel Cells added to buildings 8 13 15
-class Buildings: Fuel Cells added to buildings 13 1 10
-class Buildings: Fuel Cells added to buildings 7 4 3
-class Buildings: Fuel Cells added to buildings 14 4 6
-class Buildings: Fuel Cells added to buildings 5 7 6
-class Buildings: Fuel Cells added to buildings 5 12 10
-class Buildings: Fuel Cells added to buildings 7 1 12
-class Buildings: Fuel Cells added to buildings 2 10 4
-class Buildings: Fuel Cells added to buildings 15 14 5
-class Buildings: Fuel Cells added to buildings 12 9 5
+Building #: 1;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 2;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 3;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 4;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 5;  Height: 5;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 6;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 7;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 8;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 9;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 10;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false
+Building #: 11;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 12;  Height: 5;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 13;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 14;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+Building #: 15;  Height: 5;  HasExitPortal:true;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+
+Game Engine doJumpCalcs: canJumpLeft:true;  canJumpRight:true;  canJumpAtAll:true;  jumpDistance:1;  jumpLeftFuelNeeded:2;  jumpRightFuelNeeded:3

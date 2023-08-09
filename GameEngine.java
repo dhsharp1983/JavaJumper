@@ -63,6 +63,8 @@ public class GameEngine
             buildings[i].setHasFrozen(Boolean.parseBoolean(parsedFileContents[i - 1].split(",")[4]));
             // System.out.println(buildings[i].display());
         }
+        String mystring = displayBuildings();
+        Log.addToFullLog(mystring);
     }
 
     // method to display "usable" buildings 1-15, not building 0
@@ -105,9 +107,10 @@ public class GameEngine
         else if ((currentBuilding - currentHeight) >= 1)
             // this.canJumpLeft = true;
             jumpCalcs.setCanJumpLeft(true);
+        System.out.println("currentbuilding " + currentBuilding + " currentheight:" + currentHeight);
 
         // can only jump right to building 15 and not past it
-        if ((currentBuilding + currentHeight) > 15)
+        if ((currentBuilding + currentHeight) >= 15)
             // this.canJumpRight = false;
             jumpCalcs.setCanJumpRight(false);
         else if ((currentBuilding + currentHeight) <= 15)
@@ -128,6 +131,7 @@ public class GameEngine
             jumpRightFuelNeeded += 5;
         }
 
+        // calculate parameters for jumping left 
         try 
         {
             // // bldToLeftHeight = buildings.getAllBuildings()[currentBuilding - currentHeight].getHeight();
@@ -140,7 +144,15 @@ public class GameEngine
             int targetBuildingNumber = playerOnBuilding - buildings[playerOnBuilding].getHeight();
             int targetBuildingHeight = buildings[targetBuildingNumber].getHeight();
             int heightDiff = Math.abs(targetBuildingHeight - currentBuildingHeight);
+            // int heightDiff = targetBuildingHeight - currentBuildingHeight;
             jumpLeftFuelNeeded += heightDiff;
+            jumpCalcs.setJumpLeftFuelNeeded(jumpLeftFuelNeeded);
+            System.out.println("currentBuildingHeight: " + currentBuildingHeight);
+            System.out.println("playerOnBuilding: " + playerOnBuilding);
+            System.out.println("Target building number: " + targetBuildingNumber);
+            System.out.println("TargetBuildingHeight: " + targetBuildingHeight);
+            System.out.println("HeightDiff: " + heightDiff);
+            System.out.println("JumpLeftFuelNeeded: " + jumpLeftFuelNeeded);
         } 
         catch (Exception e) 
         {
@@ -152,11 +164,18 @@ public class GameEngine
         try 
         {
             int currentBuildingHeight = buildings[playerOnBuilding].getHeight();
-            int targetBuildingNumber = playerOnBuilding - buildings[playerOnBuilding].getHeight();
+            int targetBuildingNumber = playerOnBuilding + buildings[playerOnBuilding].getHeight();
             int targetBuildingHeight = buildings[targetBuildingNumber].getHeight();
             int heightDiff = Math.abs(targetBuildingHeight - currentBuildingHeight);
             jumpRightFuelNeeded += heightDiff;
+            jumpCalcs.setJumpRightFuelNeeded(jumpRightFuelNeeded);
             // int bldToRightHeight = buildings.getAllBuildings()[currentBuilding + currentHeight].getHeight();
+            System.out.println("currentBuildingHeight: " + currentBuildingHeight);
+            System.out.println("playerOnBuilding: " + playerOnBuilding);
+            System.out.println("Target building number: " + targetBuildingNumber);
+            System.out.println("TargetBuildingHeight: " + targetBuildingHeight);
+            System.out.println("HeightDiff: " + heightDiff);
+            System.out.println("JumpRightFuelNeeded: " + jumpRightFuelNeeded);
         } 
         catch (Exception e) 
         {
@@ -176,8 +195,12 @@ public class GameEngine
             // this.canJumpAtAll = true;
             jumpCalcs.setCanJumpAtAll(true);
         }
+
+        // set target building
+        
+
         // log at end 
-        Log.addToFullLog("JumpCalculations: " + jumpCalcs.display());
+        Log.addToFullLog("Game Engine doJumpCalcs: " + jumpCalcs.display());
     }
 
     // method to retrieve Building[]

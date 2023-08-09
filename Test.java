@@ -10,7 +10,7 @@ public class Test {
         player.setPlayerName("Dave");
         System.out.println(player.display());
         Jumper jumper = new Jumper();
-        jumper.startGame(jumper);
+        // jumper.startGame(jumper);
 
 
 

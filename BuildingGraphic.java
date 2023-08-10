@@ -3,7 +3,7 @@ public class BuildingGraphic {
     private String[] buildingColumn;
     private int buildingNumber;
     private final String[] PLAYER_CHARS = new String[]{"~o/","/| ","/ \\"};
-    private final String[] BUILDING_CHARS = new String[]{"---","==="};
+    private final String[] BUILDING_CHARS = new String[]{"   ","---","==="};
 
     public BuildingGraphic()
     {
@@ -14,7 +14,7 @@ public class BuildingGraphic {
     public BuildingGraphic(int buildingNumber)
     {
         this.buildingNumber = buildingNumber;
-        this.buildingColumn = new String[15];
+        this.buildingColumn = new String[14]; // 14 lines of 3 chars each 
     }
 
     public String[] getBuildingColumn()
@@ -22,9 +22,9 @@ public class BuildingGraphic {
         return this.buildingColumn;
     }
 
-    public String getSingleBuildingColumnLine(int index)
+    public String getSingleBuildingColumnLine(int line)
     {
-        return this.buildingColumn[index];
+        return this.buildingColumn[line];
     }
 
     public void setBuildingColumn(String[] buildingColumn)

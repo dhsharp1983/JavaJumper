@@ -5,6 +5,8 @@
 // Version: 1.0
 
 import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
 
 public class Input
 {
@@ -22,12 +24,12 @@ public class Input
         }
         catch (IllegalArgumentException badArg)
         {
-            Log.addToErrorLog("Error reading in Char, bad arg: " + badArg.getMessage());
+            Log.addToErrorLog("acceptCharInput():Error reading in Char, bad arg: " + badArg.getMessage());
             inputChar = ' ';
         }
         catch (Exception e)
         {
-            Log.addToErrorLog("Error in acceptCharInput: " + e.getMessage());
+            Log.addToErrorLog("acceptCharInput():Error in acceptCharInput: " + e.getMessage());
             inputChar = ' ';
         }
         return inputChar;
@@ -49,12 +51,12 @@ public class Input
         }
         catch (IllegalArgumentException badArg)
         {
-            Log.addToErrorLog("Error reading in Double, bad arg: " + badArg.getMessage());
+            Log.addToErrorLog("acceptDoubleInput():Error reading in Double, bad arg: " + badArg.getMessage());
             inputDouble = 0;
         }
         catch (Exception e)
         {
-            Log.addToErrorLog("Error accepting inputDouble in Input: " + e.getMessage());
+            Log.addToErrorLog("acceptDoubleInput():Error accepting inputDouble in Input: " + e.getMessage());
             inputDouble = 0;
         }
         return inputDouble;
@@ -73,12 +75,12 @@ public class Input
         }
         catch (IllegalArgumentException badArg)
         {
-            Log.addToErrorLog("Error reading in Integer, bad arg: " + badArg.getMessage());
+            Log.addToErrorLog("acceptIntegerInput(): Error reading in Integer, bad arg: " + badArg.getMessage());
             inputInt = 0;
         }
         catch (Exception e)
         {
-            Log.addToErrorLog("Error accepting inputInt in Input: " + e.getMessage());
+            Log.addToErrorLog("acceptIntegerInput(): Error accepting inputInt in Input: " + e.getMessage());
             inputInt = 0;
         }
         return inputInt;
@@ -97,9 +99,154 @@ public class Input
         }
         catch (Exception e)
         {
-            Log.addToErrorLog("Error accepting String input: " + e.getMessage());
+            Log.addToErrorLog("acceptStringInput(): Error accepting String input: " + e.getMessage());
             inputString = "";
         }
         return inputString;
     }
+
+    public static String acceptLSRTurnInput()
+    {
+        String userMove = "";
+        do
+        {
+            try
+            {
+                userMove = Input.acceptStringInput("Select a move: \nType LEFT or A to move LEFT; Type RIGHT or D to move RIGHT; Type SKIP or S to Skip Turn");
+                if (Validation.isStringBlank(userMove) == true) {userMove = "";}
+                userMove = userMove.toLowerCase();
+            }
+            catch (Exception e)
+            {
+                Log.addToErrorLog("acceptUserTurnInput() Input Error when accepting user move:" + e.getMessage());
+                userMove = "";
+            }
+            finally
+            {
+                
+                String[] acceptableInput = new String[]{"a","s","d","left","right","skip"};
+                List acceptableInputList = Arrays.asList(acceptableInput);
+                // if ((userMove.equals("a"))) //|| (userMove != "s") || (userMove != "d") || (userMove != "left") || (userMove != "skip") || (userMove != "right"))
+                if (!(acceptableInputList.contains(userMove)))
+                {
+                    Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
+                    userMove = "";
+                }
+                if (userMove == "a") {userMove = "left";}
+                if (userMove == "s") {userMove = "skip";}
+                if (userMove == "d") {userMove = "right";}
+            }
+        } while (userMove == "");
+        // System.out.println("user selected " + userMove);
+        Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
+        return userMove;
+    }
+
+    public static String acceptSRTurnInput()
+    {
+        String userMove = "";
+        do
+        {
+            try
+            {
+                userMove = Input.acceptStringInput("Select a move: \nType Type RIGHT or D to move RIGHT; Type SKIP or S to Skip Turn");
+                if (Validation.isStringBlank(userMove) == true) {userMove = "";}
+                userMove = userMove.toLowerCase();
+            }
+            catch (Exception e)
+            {
+                Log.addToErrorLog("acceptUserTurnInput() Input Error when accepting user move:" + e.getMessage());
+                userMove = "";
+            }
+            finally
+            {
+                
+                String[] acceptableInput = new String[]{"s","d","right","skip"};
+                List acceptableInputList = Arrays.asList(acceptableInput);
+                // if ((userMove.equals("a"))) //|| (userMove != "s") || (userMove != "d") || (userMove != "left") || (userMove != "skip") || (userMove != "right"))
+                if (!(acceptableInputList.contains(userMove)))
+                {
+                    Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
+                    userMove = "";
+                }
+                if (userMove == "s") {userMove = "skip";}
+                if (userMove == "d") {userMove = "right";}
+            }
+        } while (userMove == "");
+        // System.out.println("user selected " + userMove);
+        Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
+        return userMove;
+    }
+
+    public static String acceptLSTurnInput()
+    {
+        String userMove = "";
+        do
+        {
+            try
+            {
+                userMove = Input.acceptStringInput("Select a move: \nType LEFT or A to move LEFT; Type SKIP or S to Skip Turn");
+                if (Validation.isStringBlank(userMove) == true) {userMove = "";}
+                userMove = userMove.toLowerCase();
+            }
+            catch (Exception e)
+            {
+                Log.addToErrorLog("acceptUserTurnInput() Input Error when accepting user move:" + e.getMessage());
+                userMove = "";
+            }
+            finally
+            {
+                
+                String[] acceptableInput = new String[]{"a","s","left","skip"};
+                List acceptableInputList = Arrays.asList(acceptableInput);
+                // if ((userMove.equals("a"))) //|| (userMove != "s") || (userMove != "d") || (userMove != "left") || (userMove != "skip") || (userMove != "right"))
+                if (!(acceptableInputList.contains(userMove)))
+                {
+                    Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
+                    userMove = "";
+                }
+                if (userMove == "a") {userMove = "left";}
+                if (userMove == "s") {userMove = "skip";}
+            }
+        } while (userMove == "");
+        // System.out.println("user selected " + userMove);
+        Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
+        return userMove;
+    }
+
+    public static String acceptSkipTurnInput()
+    {
+        String userMove = "";
+        do
+        {
+            try
+            {
+                userMove = Input.acceptStringInput("You can't move! Type SKIP or S to Skip Turn");
+                if (Validation.isStringBlank(userMove) == true) {userMove = "";}
+                userMove = userMove.toLowerCase();
+            }
+            catch (Exception e)
+            {
+                Log.addToErrorLog("acceptUserTurnInput() Input Error when accepting user move:" + e.getMessage());
+                userMove = "";
+            }
+            finally
+            {
+                
+                String[] acceptableInput = new String[]{"s","skip"};
+                List acceptableInputList = Arrays.asList(acceptableInput);
+                // if ((userMove.equals("a"))) //|| (userMove != "s") || (userMove != "d") || (userMove != "left") || (userMove != "skip") || (userMove != "right"))
+                if (!(acceptableInputList.contains(userMove)))
+                {
+                    Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
+                    userMove = "";
+                }
+                if (userMove == "s") {userMove = "skip";}
+            }
+        } while (userMove == "");
+        // System.out.println("user selected " + userMove);
+        Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
+        return userMove;
+    }
+
 }

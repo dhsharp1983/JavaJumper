@@ -96,10 +96,40 @@ public class GameEngine
         return (this.buildings[index].display());
     }
 
+    public String displayJumpPack()
+    {
+        return this.jumpPack.display();
+    }
+
+    public String displayPlayer()
+    {
+        return this.player.display();
+    }
+
+    public String displayJumpCalcs()
+    {
+        return this.jumpCalcs.display();
+    }
+
+    public String displayGameStats()
+    {
+        String returnString = "Turn:" + gameTurn + ";  PlayerOnBuilding:" + playerOnBuilding + ";  jumpPackCharge:" + jumpPack.getBatteryLevel();
+        return returnString;
+    }
+
     public void doJumpCalculations()
     {
         int currentBuilding = this.playerOnBuilding;
         int currentHeight = this.buildings[playerOnBuilding].getHeight();
+        int leftTargetBuildingNumber;
+        int leftTargetBuildingHeight;
+        int rightTargetBuildingHeight;
+        int rightTargetBuildingNumber;
+        int jumpLeftHeightDiff;
+        int jumpRightHeightDiff;
+        int jumpLeftFuelNeeded = 0;
+        int jumpRightFuelNeeded = 0;
+
         // can only jump left to building 1 and not past it 
         if ((currentBuilding - currentHeight) < 1)
             // this.canJumpLeft = false;
@@ -107,7 +137,7 @@ public class GameEngine
         else if ((currentBuilding - currentHeight) >= 1)
             // this.canJumpLeft = true;
             jumpCalcs.setCanJumpLeft(true);
-        System.out.println("currentbuilding " + currentBuilding + " currentheight:" + currentHeight);
+        // System.out.println("currentbuilding " + currentBuilding + " currentheight:" + currentHeight);
 
         // can only jump right to building 15 and not past it
         if ((currentBuilding + currentHeight) >= 15)
@@ -118,12 +148,12 @@ public class GameEngine
             jumpCalcs.setCanJumpRight(true);
         // jump distance is building height
         // this.jumpDistance = currentHeight;
-        jumpCalcs.setJumpDistance(currentHeight);
+        
         
         // calculate fuel burn - absolute value of (bldA height - bldB height)
         
-        int jumpLeftFuelNeeded = 0;
-        int jumpRightFuelNeeded = 0;
+        jumpLeftFuelNeeded = 0;
+        jumpRightFuelNeeded = 0;
         
         if (buildings[playerOnBuilding].getHasPoliceWeb() == true)
         {
@@ -131,7 +161,7 @@ public class GameEngine
             jumpRightFuelNeeded += 5;
         }
 
-        // calculate parameters for jumping left 
+        // calculate parameters for jumping LEFT 
         try 
         {
             // // bldToLeftHeight = buildings.getAllBuildings()[currentBuilding - currentHeight].getHeight();
@@ -139,48 +169,66 @@ public class GameEngine
             // int bldToLeftHeight = buildings[leftTargetBuilding].getHeight();
             // jumpLeftFuelNeeded += bldToLeftHeight;
             // // int bldToLeftHeight = buildings[playerOnBuilding - buildings[playerOnBuilding].getHeight()]
-
-            int currentBuildingHeight = buildings[playerOnBuilding].getHeight();
-            int targetBuildingNumber = playerOnBuilding - buildings[playerOnBuilding].getHeight();
-            int targetBuildingHeight = buildings[targetBuildingNumber].getHeight();
-            int heightDiff = Math.abs(targetBuildingHeight - currentBuildingHeight);
+            // int currentBuildingHeight = buildings[playerOnBuilding].getHeight();
+            leftTargetBuildingNumber = playerOnBuilding - buildings[playerOnBuilding].getHeight();
+            leftTargetBuildingHeight = buildings[leftTargetBuildingNumber].getHeight();
+            jumpLeftHeightDiff = Math.abs(leftTargetBuildingHeight - currentHeight);
             // int heightDiff = targetBuildingHeight - currentBuildingHeight;
-            jumpLeftFuelNeeded += heightDiff;
+            jumpLeftFuelNeeded += jumpLeftHeightDiff;
             jumpCalcs.setJumpLeftFuelNeeded(jumpLeftFuelNeeded);
-            System.out.println("currentBuildingHeight: " + currentBuildingHeight);
-            System.out.println("playerOnBuilding: " + playerOnBuilding);
-            System.out.println("Target building number: " + targetBuildingNumber);
-            System.out.println("TargetBuildingHeight: " + targetBuildingHeight);
-            System.out.println("HeightDiff: " + heightDiff);
-            System.out.println("JumpLeftFuelNeeded: " + jumpLeftFuelNeeded);
+            jumpCalcs.setJumpLeftTargetBuilding(leftTargetBuildingNumber);
+            jumpCalcs.setJumpLeftBuildingHeight(leftTargetBuildingHeight);
+            jumpCalcs.setJumpLeftHeightDiff(jumpLeftHeightDiff);
+            jumpCalcs.setJumpLeftDistance(currentHeight);
+            // System.out.println("currentHeight: " + currentHeight);
+            // System.out.println("playerOnBuilding: " + playerOnBuilding);
+            // System.out.println("Target building number: " + leftTargetBuildingNumber);
+            // System.out.println("TargetBuildingHeight: " + leftTargetBuildingHeight);
+            // System.out.println("LeftHeightDiff: " + jumpLeftHeightDiff);
+            // System.out.println("JumpLeftFuelNeeded: " + jumpLeftFuelNeeded);
         } 
         catch (Exception e) 
         {
-            Log.addToErrorLog("JumpCalcs Left Target Building - Array Probably Out of Bounds: " + e.getMessage());
+            Log.addToErrorLog("Turn " + gameTurn + " - JumpCalcs Left Target Building - Array Probably Out of Bounds: " + e.getMessage());
             // canJumpLeft = false;
             jumpCalcs.setCanJumpLeft(false);
+            jumpCalcs.setJumpLeftFuelNeeded(0);
+            jumpCalcs.setJumpLeftTargetBuilding(0);
+            jumpCalcs.setJumpLeftBuildingHeight(0);
+            jumpCalcs.setJumpLeftHeightDiff(0);
+            jumpCalcs.setJumpLeftDistance(0);
         }
 
+        // calculate parameters for jumping RIGHT
         try 
         {
-            int currentBuildingHeight = buildings[playerOnBuilding].getHeight();
-            int targetBuildingNumber = playerOnBuilding + buildings[playerOnBuilding].getHeight();
-            int targetBuildingHeight = buildings[targetBuildingNumber].getHeight();
-            int heightDiff = Math.abs(targetBuildingHeight - currentBuildingHeight);
-            jumpRightFuelNeeded += heightDiff;
+            // int currentBuildingHeight = buildings[playerOnBuilding].getHeight();
+            rightTargetBuildingNumber = playerOnBuilding + buildings[playerOnBuilding].getHeight();
+            rightTargetBuildingHeight = buildings[rightTargetBuildingNumber].getHeight();
+            jumpRightHeightDiff = Math.abs(rightTargetBuildingHeight - currentHeight);
+            jumpRightFuelNeeded += jumpRightHeightDiff;
             jumpCalcs.setJumpRightFuelNeeded(jumpRightFuelNeeded);
+            jumpCalcs.setJumpRightTargetBuilding(rightTargetBuildingNumber);
+            jumpCalcs.setJumpRightBuildingHeight(rightTargetBuildingHeight);
+            jumpCalcs.setJumpRightHeightDiff(jumpRightHeightDiff);
+            jumpCalcs.setJumpRightDistance(currentHeight);
             // int bldToRightHeight = buildings.getAllBuildings()[currentBuilding + currentHeight].getHeight();
-            System.out.println("currentBuildingHeight: " + currentBuildingHeight);
-            System.out.println("playerOnBuilding: " + playerOnBuilding);
-            System.out.println("Target building number: " + targetBuildingNumber);
-            System.out.println("TargetBuildingHeight: " + targetBuildingHeight);
-            System.out.println("HeightDiff: " + heightDiff);
-            System.out.println("JumpRightFuelNeeded: " + jumpRightFuelNeeded);
+            // System.out.println("currentHeight: " + currentHeight);
+            // System.out.println("playerOnBuilding: " + playerOnBuilding);
+            // System.out.println("Target building number: " + rightTargetBuildingNumber);
+            // System.out.println("TargetBuildingHeight: " + rightTargetBuildingHeight);
+            // System.out.println("HeightDiff: " + jumpRightHeightDiff);
+            // System.out.println("JumpRightFuelNeeded: " + jumpRightFuelNeeded);
         } 
         catch (Exception e) 
         {
-            Log.addToErrorLog("JumpCalcs Right Target Building - Array Probably Out of Bounds: " + e.getMessage());
+            Log.addToErrorLog("Turn " + gameTurn + " - JumpCalcs Right Target Building - Array Probably Out of Bounds: " + e.getMessage());
             jumpCalcs.setCanJumpRight(false);
+            jumpCalcs.setJumpRightFuelNeeded(0);
+            jumpCalcs.setJumpRightTargetBuilding(0);
+            jumpCalcs.setJumpRightBuildingHeight(0);
+            jumpCalcs.setJumpRightHeightDiff(0);
+            jumpCalcs.setJumpRightDistance(0);
         }
 
         
@@ -190,7 +238,7 @@ public class GameEngine
             // this.canJumpAtAll = false;
             jumpCalcs.setCanJumpAtAll(false);
         }
-        else if (buildings[playerOnBuilding].getHasFrozen() == false)
+        else if (buildings[playerOnBuilding].getHasFrozen() != true)
         {
             // this.canJumpAtAll = true;
             jumpCalcs.setCanJumpAtAll(true);
@@ -200,7 +248,43 @@ public class GameEngine
         
 
         // log at end 
-        Log.addToFullLog("Game Engine doJumpCalcs: " + jumpCalcs.display());
+        Log.addToFullLog("Game Engine doJumpCalcs(): \n" + jumpCalcs.display());
+    }
+
+    public void executeJump(String userMove)
+    {
+        
+        if ((userMove.equals("left")) && (buildings[playerOnBuilding].getHasFrozen() == false) && (jumpCalcs.getCanJumpAtAll() == true) && (jumpCalcs.getCanJumpLeft() == true))
+        {
+            playerOnBuilding = jumpCalcs.getJumpLeftTargetBuilding();
+            jumpPack.depleteBattery(jumpCalcs.getJumpLeftFuelNeeded());
+            if (buildings[jumpCalcs.getJumpLeftTargetBuilding()].getHasFuelCell() == true)
+            {
+                jumpPack.chargeBattery(5);
+                buildings[jumpCalcs.getJumpLeftTargetBuilding()].setHasFuelCell(false);
+            }
+        // gameTurn++;
+        Log.addToFullLog("executeJump(left): " + displayGameStats());
+        }
+
+        else if ((userMove.equals("right")) && (buildings[playerOnBuilding].getHasFrozen() == false) && (jumpCalcs.getCanJumpAtAll() == true) && (jumpCalcs.getCanJumpRight() == true))
+        {
+            playerOnBuilding = jumpCalcs.getJumpRightTargetBuilding();
+            jumpPack.depleteBattery(jumpCalcs.getJumpRightFuelNeeded());
+            if (buildings[jumpCalcs.getJumpRightTargetBuilding()].getHasFuelCell() == true)
+            {
+                jumpPack.chargeBattery(5);
+                buildings[jumpCalcs.getJumpRightTargetBuilding()].setHasFuelCell(false);
+            }
+            // gameTurn++;
+            Log.addToFullLog("executeJump(right): " + displayGameStats());
+        }
+
+        else if (userMove.equals("skip"))
+        {
+            skipTurn();
+            Log.addToFullLog("executeJump(skip): " + displayGameStats());
+        }
     }
 
     // method to retrieve Building[]
@@ -248,7 +332,7 @@ public class GameEngine
             this.buildings[i].setHasFrozen(false);
         }
         this.buildings[targetBuilding].setHasFrozen(true);
-        Log.addToFullLog(getClass() + ": Frozen Building moved to " + this.buildings[targetBuilding]);
+        Log.addToFullLog(getClass() + ": Frozen Building moved to " + this.buildings[targetBuilding].display());
     }
 
     // method to move the web trap to a random building, get input paramater from RandomCalcs.selectRandomBuilding
@@ -269,15 +353,15 @@ public class GameEngine
         //     }
 
         // } while (continueLoop = true);
-        Log.addToFullLog(getClass() + ": Police web moved to " + this.buildings[targetBuilding]);
+        Log.addToFullLog(getClass() + ": Police web moved to " + this.buildings[targetBuilding].display());
     }
 
     // method to respawn fuel cells on every third turn. 
     // loops through array to reset FuelCell flag to false
     // then, picks 3x random unique buildings, sets the flag on those buildings to true.
-    public void respawnFuelCells(int turn)
+    public void respawnFuelCells()
     {
-        if (turn % 3 == 0)
+        if (this.gameTurn % 3 == 0)
         {
             int targetBuilding2 = 0;
             int targetBuilding3 = 0;
@@ -286,7 +370,7 @@ public class GameEngine
             {
                 targetBuilding2 = RandomCalcs.selectRandomBuilding();
                 targetBuilding3 = RandomCalcs.selectRandomBuilding();
-                System.out.println(targetBuilding1 + " " + targetBuilding2 + " " + targetBuilding3);
+                // System.out.println(targetBuilding1 + " " + targetBuilding2 + " " + targetBuilding3);
             } while ((targetBuilding1 == targetBuilding2) || (targetBuilding1 == targetBuilding3) || (targetBuilding2 == targetBuilding3));
             for (int i = 1; i < this.buildings.length; i++)
             {
@@ -295,7 +379,7 @@ public class GameEngine
             this.buildings[targetBuilding1].setHasFuelCell(true);
             this.buildings[targetBuilding2].setHasFuelCell(true);
             this.buildings[targetBuilding3].setHasFuelCell(true);
-            Log.addToFullLog(getClass() + ": Fuel Cells added to buildings " + targetBuilding1 + " " + targetBuilding2 + " " + targetBuilding3);
+            Log.addToFullLog(getClass() + "respawnFuelCells(): Fuel Cells added to buildings " + targetBuilding1 + " " + targetBuilding2 + " " + targetBuilding3);
         }
     }
 
@@ -343,6 +427,13 @@ public class GameEngine
     public void setPlayerOnBuilding(int playerOnBuilding)
     {
         this.playerOnBuilding = playerOnBuilding;
+    }
+
+    public void skipTurn()
+    {
+        jumpPack.depleteBattery(1);
+        // gameTurn++;
+        Log.addToFullLog("skipTurn(): " + displayGameStats());
     }
 }
 

@@ -11,6 +11,7 @@ public class Log
 {
     static File errorLogFile = new File("ErrorLog.txt");
     static File fullLogFile = new File("VerboseLog.txt");
+    static String breakLine = "=======================================================";
     
     public static void addToErrorLog(String errorMsg)
     {
@@ -81,6 +82,7 @@ public class Log
         {
             errorLogFile.delete();
         }
+    addToErrorLog("Log Initialised");
     }
 
     public static void initFullLog()
@@ -89,5 +91,6 @@ public class Log
         {
             fullLogFile.delete();
         }
+    addToFullLog("Log Initialised");
     }
 }

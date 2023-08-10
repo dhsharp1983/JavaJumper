@@ -35,13 +35,18 @@ public class Jumper
     // {
     //     return this.buildings;
     // }
-
+    
+    
     
 
     public GameEngine getGameEngine()
     {
         return this.gameEngine;
     }
+
+
+    
+    
 
     public static void main(String[] args)
     {
@@ -53,6 +58,8 @@ public class Jumper
         jumper.gameEngine.createBuildingArray();
         GameEngine gameEngine = jumper.getGameEngine();
         Player player = gameEngine.getPlayer();
+        JumpCalcs jumpCalcs = gameEngine.getJumpCalcs();
+        String userMove = "";
 
 
         
@@ -62,23 +69,59 @@ public class Jumper
         jumper.startGame();
 
         // set initial variables
-        gameEngine.setPlayerOnBuilding(3);
+        gameEngine.setPlayerOnBuilding(1);
         gameEngine.setGameTurn(1);
 
-        // perform jump calculations 
-        gameEngine.doJumpCalculations();
-        //debug
-        System.out.println(gameEngine.getJumpCalcs().display());
+        for (int i = 0; i < 10; i++)
+        {
+            // log start
+            Log.addToFullLog(Log.breakLine);
+            Log.addToFullLog("COMMENCE TURN " + gameEngine.getGameTurn());
+            
+            // perform jump calculations 
+            gameEngine.doJumpCalculations();
+            Log.addToFullLog(gameEngine.displayGameStats());
+            Log.addToFullLog(gameEngine.displayBuildings());
+            Log.addToFullLog(gameEngine.getJumpCalcs().display());
 
-        System.out.println("Select a move: press left arrow for left; right arrow for right; enter to skip");
-        
+            // get user input
+            boolean canJumpAtAll = jumpCalcs.getCanJumpAtAll();
+            boolean canJumpLeft = jumpCalcs.getCanJumpLeft();
+            boolean canJumpRight = jumpCalcs.getCanJumpRight();
+            if ((canJumpAtAll == true) && (canJumpLeft == true) && (canJumpRight == true))
+                userMove = Input.acceptLSRTurnInput();
+            if ((canJumpAtAll == true) && (canJumpLeft == true) && (canJumpRight == false))
+                userMove = Input.acceptLSTurnInput();
+            if ((canJumpAtAll == true) && (canJumpLeft == false) && (canJumpRight == true))
+                userMove = Input.acceptSRTurnInput();
+            if ((canJumpAtAll == false) || ((canJumpLeft == false) && (canJumpRight == false)))
+                userMove = Input.acceptSkipTurnInput();
+            
+
+            // execute jump 
+            gameEngine.executeJump(userMove);
+
+            // post jump changes 
+            gameEngine.randomiseBuildingHeights();
+            gameEngine.moveFrozenBuilding(RandomCalcs.selectRandomBuilding());
+            gameEngine.moveWebTrap(RandomCalcs.selectRandomBuilding());
+            gameEngine.respawnFuelCells();
+            gameEngine.setGameTurn(gameEngine.getGameTurn() + 1);
+            System.out.println(gameEngine.displayGameStats());
+            if (gameEngine.getJumpPack().getBatteryLevel() < 1)
+            {
+                //loseGame()
+                renderDisplay.displayInputText("You lose");
+                System.exit(0);
+            }
+        }
         
     
     // end of Main     
     } 
 
 
-
+    
 
 
 

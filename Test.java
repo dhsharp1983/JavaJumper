@@ -10,6 +10,11 @@ public class Test {
         player.setPlayerName("Dave");
         System.out.println(player.display());
         Jumper jumper = new Jumper();
+        jumper.getGameEngine().createBuildingArray();
+        // System.out.println(jumper.getGameEngine().displayOneBuilding(15));
+        RenderDisplay renderDisplay = new RenderDisplay(jumper);
+        renderDisplay.renderBuildingGraphics();
+        renderDisplay.renderDisplayLines();
         // jumper.startGame(jumper);
 
 

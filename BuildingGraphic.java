@@ -5,11 +5,13 @@ public class BuildingGraphic {
     private final String[] PLAYER_CHARS = new String[]{"~o/","/| ","/ \\"};
     private final String[] BUILDING_CHARS = new String[]{"   ","---","==="};
 
+    // default constructor 
     public BuildingGraphic()
     {
         this.buildingNumber = 0;
         this.buildingColumn = new String[]{"abc"};
     }
+    
     
     public BuildingGraphic(int buildingNumber)
     {

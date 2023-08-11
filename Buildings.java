@@ -1,3 +1,5 @@
+// Decommissioned - replaced by GameEngine Class 
+
 // // Class for the Buildings collection and methods for its use in the game 
 // // Author: David Sharp
 // // Version: 1.0

@@ -1,5 +1,8 @@
 // Class to build graphics and print text
 // Inspriation for clearScreen method: https://www.javatpoint.com/how-to-clear-screen-in-java
+// Author: David Sharp
+// Version: 1.1 
+
 public class RenderDisplay 
 {
     private Jumper jumper;
@@ -15,6 +18,8 @@ public class RenderDisplay
     private final String[] BUILDING_CHARS = new String[]{"   ","---","===","***","#%#","~~~"};
     private final String[] FUEL_CHARS = new String[]{" % "};
 
+    // primary client class has a limited default constructor only. 
+    // Actively uses data in jumper object. Must be passed in.
     public RenderDisplay(Jumper jumper)
     {
         this.jumper = jumper;
@@ -24,12 +29,15 @@ public class RenderDisplay
         endScreen = "";
     }
 
+    // clears the screen for frame display 
     public void clearScreen()
     {
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
 
+    // displays a rendered frame. 
+    // Requires renderBuildingGraphs, renderBuldingLines and renderTopDiplsayLines to run first. 
     public void displayFrame()
     {
         for (String line : topDisplayLines) 
@@ -40,17 +48,19 @@ public class RenderDisplay
         {
             System.out.println(buildingLines[i-1]);
         }
-
     }
 
+    // renders the graphics for the buildings.
+    // each element in the buildingGraphics array represents a single building (column).
     public void renderBuildingGraphics()
     {
         buildingGraphics = new BuildingGraphic[16];
         boolean isPlayerOnBuilding = false;
 
-        // set null building 0
+        // set null building 0 - building 0 not used in practice 
         buildingGraphics[0] = new BuildingGraphic();
 
+        // loop through buildings and generate their sizes and contents 
         for (int i = 1; i < buildingGraphics.length; i++)
         {
             buildingGraphics[i] = new BuildingGraphic(i);
@@ -70,22 +80,22 @@ public class RenderDisplay
                 else if ((j == (colRoof + 1)) && (isPlayerOnBuilding == true)) {buildingGraphics[i].setSingleBuildingColumnLine(PLAYER_CHARS[2], j);} // add bottom row player char
                 else if ((j == (colRoof + 2)) && (isPlayerOnBuilding == true)) {buildingGraphics[i].setSingleBuildingColumnLine(PLAYER_CHARS[1], j);} // add middle row player char 
                 else if ((j == (colRoof + 3)) && (isPlayerOnBuilding == true)) {buildingGraphics[i].setSingleBuildingColumnLine(PLAYER_CHARS[0], j);} // add top row player char 
-
                 else if ((j == (colRoof + 1)) && (gameEngine.getBuilding(i).getHasExitPortal() == true)) {buildingGraphics[i].setSingleBuildingColumnLine(EXITPORTAL_CHARS[0], j);} // add bottom exit portal char
                 else if ((j == (colRoof + 2)) && (gameEngine.getBuilding(i).getHasExitPortal() == true)) {buildingGraphics[i].setSingleBuildingColumnLine(EXITPORTAL_CHARS[1], j);} // add middle exit portal char
                 else if ((j == (colRoof + 3)) && (gameEngine.getBuilding(i).getHasExitPortal() == true)) {buildingGraphics[i].setSingleBuildingColumnLine(EXITPORTAL_CHARS[2], j);} // add top exit portal char
-                
                 else if ((j == (colRoof + 1)) && (gameEngine.getBuilding(i).getHasFuelCell() == true)) {buildingGraphics[i].setSingleBuildingColumnLine(" @ ", j);} // add fuel cell @
                 else if (j > colRoof) {buildingGraphics[i].setSingleBuildingColumnLine(BUILDING_CHARS[0], j);} // sets space chars 
             }
         }
     }
     
-
+    // Converts building columns into horizontal lines for display. 
     public void renderBuildingLines()
     {
         buildingLines = new String[15];
+        // set ground layer 
         buildingLines[0] = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+        // set remaining lines 
         for (int line = 1; line < 14; line++)
         {
             String content = "  ";
@@ -94,36 +104,31 @@ public class RenderDisplay
                 content = content + buildingGraphics[col].getSingleBuildingColumnLine(line) + "  ";
             }
             buildingLines[line] = content;
-            // buildingLines[i] = buildingGraphics[1].getSingleBuildingColumnLine(i) + buildingGraphics[2].getSingleBuildingColumnLine(i) + buildingGraphics[3].getSingleBuildingColumnLine(i) + buildingGraphics[4].getSingleBuildingColumnLine(i);
-            // System.out.println(buildingLines[line]);
         }
     }
 
+    // creates the top section of the frame for printing messages and instructions 
     public void renderTopDisplayLines(String messageInput)
     {
-        this.topDisplayLines = new String[9];
+        this.topDisplayLines = new String[6];
         topDisplayLines[0] = "                                 JAVA JUMPER!                                  ";
         topDisplayLines[1] = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
-        topDisplayLines[2] = "                                                                               ";
-        topDisplayLines[3] = "         Turn: " + jumper.getGameEngine().getGameTurn() + "                                                               ";
-        topDisplayLines[4] = "    Fuel Left: " + jumper.getGameEngine().getJumpPack().getBatteryLevel() + "                                                                ";
-        topDisplayLines[5] = "                                                                               ";
-        topDisplayLines[6] = " " + messageInput;
-        topDisplayLines[7] = "                                                                               ";
-        topDisplayLines[8] = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+        // topDisplayLines[2] = "                                                                               ";
+        topDisplayLines[2] = "         Turn: " + jumper.getGameEngine().getGameTurn() + "                                                               ";
+        topDisplayLines[3] = "    Fuel Left: " + jumper.getGameEngine().getJumpPack().getBatteryLevel() + "                                                                ";
+        // topDisplayLines[5] = "                                                                               ";
+        topDisplayLines[4] = " " + messageInput;
+        // topDisplayLines[7] = "                                                                               ";
+        topDisplayLines[5] = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     }
 
+    // prints out input text to screen 
     public void displayInputText(String inputText)
     {
         System.out.println(inputText);
     }
 
-    public void test()
-    {
-        // jumper.getBuildings().displayBuildings();
-        
-    }
-
+    // prints welcome screen 
     public void printWelcomeScreen()
     {
         System.out.println("WELCOME TO JAVA JUMPER");

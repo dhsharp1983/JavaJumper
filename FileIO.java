@@ -40,4 +40,29 @@ public class FileIO
         return fileContents;
     }
 
+    // static method to write a file, returns nothing 
+    public static void writeFile(String inputString, String writeFileName)
+        throws IOException, Exception
+    {
+        try
+        {
+            PrintWriter printWriter = new PrintWriter(writeFileName);
+            try
+            {
+                printWriter.println(inputString);
+                printWriter.close();
+            }
+            catch (Exception e)
+            {
+                Log.addToErrorLog("FileIO writeFile(): could not write data: " + e.getMessage());
+            }
+        }
+        catch (Exception e)
+        {
+            Log.addToErrorLog("FileIO writeFile(): could not open file to write to:" + e.getMessage());
+        }
+    }
+
+
+
 }

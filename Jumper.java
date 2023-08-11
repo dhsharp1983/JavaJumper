@@ -1,6 +1,6 @@
 // Main Program and attributes for Jumper 
 // Author: David Sharp
-// Version: 1.1 
+// Version: 1.2
 
 // credits:
 // for measuring time: 
@@ -9,49 +9,30 @@
 
 import java.util.concurrent.TimeUnit;
 
-
-
-
 public class Jumper 
 {
-    // private int turn;
-    // private int onBuilding;
-    // private Player player;
-    // private Buildings buildings;
-    // private JumpPack jumpPack;
     private GameEngine gameEngine;
-    private boolean winCondition;
-    private boolean lossCondition;
+    
 
+    // default constructor only as this is a primary client class 
     public Jumper()
     {
-        // this.turn = 1;
-        // this.onBuilding = 1;
-        // this.player = new Player();
-        // this.buildings = new Buildings();
-        // this.jumpPack = new JumpPack();
         this.gameEngine = new GameEngine();
     }
 
-    // public Buildings getBuildings()
-    // {
-    //     return this.buildings;
-    // }
-    
-    
-    
+    // no non-default constructor     
 
     public GameEngine getGameEngine()
     {
         return this.gameEngine;
     }
 
-
-    
-    
-
     public static void main(String[] args)
     {
+        // set additional variables 
+        boolean winCondition = false;
+        boolean lossCondition = false;
+        
         // initialise - create objects 
         Log.initErrorLog();
         Log.initFullLog();
@@ -63,8 +44,6 @@ public class Jumper
         JumpCalcs jumpCalcs = gameEngine.getJumpCalcs();
         String userMove = "";
 
-
-        
         // start the game 
         renderDisplay.printWelcomeScreen();
         player.inputPlayerName();
@@ -74,14 +53,17 @@ public class Jumper
         gameEngine.setPlayerOnBuilding(1);
         gameEngine.setGameTurn(1);
 
+        // loop gameplay 
         for (int i = 0; i < 9999; i++)
         {
             // log start
             Log.addToFullLog(Log.breakLine);
             Log.addToFullLog("COMMENCE TURN " + gameEngine.getGameTurn());
             
-            // perform jump calculations 
+            // perform jump calculations
             gameEngine.doJumpCalculations();
+
+            // log jump calculations 
             Log.addToFullLog(gameEngine.displayGameStats());
             Log.addToFullLog(gameEngine.displayBuildings());
             Log.addToFullLog(gameEngine.getJumpCalcs().display());
@@ -93,7 +75,7 @@ public class Jumper
             renderDisplay.clearScreen();
             renderDisplay.displayFrame();
 
-            // get user input
+            // get user input - uses jumpCalcs parameters to validate move selection 
             boolean canJumpAtAll = jumpCalcs.getCanJumpAtAll();
             boolean canJumpLeft = jumpCalcs.getCanJumpLeft();
             boolean canJumpRight = jumpCalcs.getCanJumpRight();
@@ -105,44 +87,41 @@ public class Jumper
                 userMove = Input.acceptSRTurnInput();
             if ((canJumpAtAll == false) || ((canJumpLeft == false) && (canJumpRight == false)))
                 userMove = Input.acceptSkipTurnInput();
-            
-
+        
             // execute jump 
             gameEngine.executeJump(userMove);
 
             // post jump changes 
+            gameEngine.setGameTurn(gameEngine.getGameTurn() + 1);
             gameEngine.randomiseBuildingHeights();
             gameEngine.moveFrozenBuilding(RandomCalcs.selectRandomBuilding());
             gameEngine.moveWebTrap(RandomCalcs.selectRandomBuilding());
             gameEngine.respawnFuelCells();
-            gameEngine.setGameTurn(gameEngine.getGameTurn() + 1);
             System.out.println(gameEngine.displayGameStats());
+
+            // evaluate if player is on building 15 for exit portal, set win condition 
             if (gameEngine.getPlayerOnBuilding() == 15)
             {
-                jumper.winCondition = true;
-                jumper.lossCondition = false;
+                winCondition = true;
+                lossCondition = false;
                 renderDisplay.displayInputText("You win!");
                 System.exit(0);
             }
+
+            // evaluate if player is out of fuel, set loss condition 
             if (gameEngine.getJumpPack().getBatteryLevel() < 1)
             {
                 //loseGame()
-                jumper.winCondition = false;
-                jumper.lossCondition = true;
+                winCondition = false;
+                lossCondition = true;
                 renderDisplay.displayInputText("You lose");
                 System.exit(0);
             }
-        }
-        
-    
+        } // end gameplay loop 
     // end of Main     
     } 
 
-
-    
-
-
-
+    // method to start the game and print a countdown timer 
     public void startGame()
     {
         System.out.print("Game starting in:  ");

@@ -13,6 +13,7 @@ public class Log
     static File fullLogFile = new File("VerboseLog.txt");
     static String breakLine = "=======================================================";
     
+    // adds a String entry to the Error log 
     public static void addToErrorLog(String errorMsg)
     {
         FileWriter filewriter = null;
@@ -44,6 +45,7 @@ public class Log
         }
     }
 
+    // adds a String entry to the full verbose game log 
     public static void addToFullLog(String msg)
     {
         FileWriter filewriter = null;
@@ -76,6 +78,7 @@ public class Log
         }
     }
 
+    // checks for existing errorLog file and deletes it 
     public static void initErrorLog()
     {
         if (errorLogFile.exists())
@@ -85,6 +88,7 @@ public class Log
     addToErrorLog("Log Initialised");
     }
 
+    // checks for existing verbose log file and deletes it 
     public static void initFullLog()
     {
         if (fullLogFile.exists())

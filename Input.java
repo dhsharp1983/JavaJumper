@@ -1,6 +1,7 @@
-// Static class to get input and perform exception reporting 
-// If input (try/catch) fails, a default value is passed. 
-// Validation should be performed by the methods in Validation. 
+// Static class to get input and perform exception reporting.
+// For use: Input.method() should be called in a try/catch block, then:
+// validation should be performed by the methods in Validation. 
+// By default, Input passes default / empty / zero returns for bad input. Validation picks this up and loops. 
 // Author: David Sharp
 // Version: 1.0
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class Input
 {
-    
+    // accept character input. Return blank space if error encountered. Validation should catch the blank space. 
     public static char acceptCharInput(String displayMessage, int charAt)
         throws IllegalArgumentException, Exception
     {
@@ -35,6 +36,7 @@ public class Input
         return inputChar;
     }
 
+    // accept double input. Return 0.0 error encountered. Validation should catch the 0 value. 
     public static Double acceptDoubleInput(String displayMessage)
         throws IllegalArgumentException, Exception
     {
@@ -62,6 +64,7 @@ public class Input
         return inputDouble;
     }
 
+    // accept integer input. Return 0 if error encountered. Validation should catch the 0 value. 
     public static int acceptIntegerInput(String displayMessage)
         throws IllegalArgumentException, Exception
     {
@@ -86,6 +89,7 @@ public class Input
         return inputInt;
     }
 
+    // accept String input. Return blank space if error encountered. Validation should catch the blank space. 
     public static String acceptStringInput(String displayMessage)
         throws Exception
     {
@@ -105,6 +109,7 @@ public class Input
         return inputString;
     }
 
+    // game method to accept Left/Skip/Right. Forms part of game control, user cannot select a non-valid option to move player. 
     public static String acceptLSRTurnInput()
     {
         String userMove = "";
@@ -126,7 +131,6 @@ public class Input
                 
                 String[] acceptableInput = new String[]{"a","s","d","left","right","skip"};
                 List acceptableInputList = Arrays.asList(acceptableInput);
-                // if ((userMove.equals("a"))) //|| (userMove != "s") || (userMove != "d") || (userMove != "left") || (userMove != "skip") || (userMove != "right"))
                 if (!(acceptableInputList.contains(userMove)))
                 {
                     Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
@@ -137,11 +141,11 @@ public class Input
                 if (userMove == "d") {userMove = "right";}
             }
         } while (userMove == "");
-        // System.out.println("user selected " + userMove);
         Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
         return userMove;
     }
 
+    // game method to accept Skip/Right. Forms part of game control, user cannot select a non-valid option to move player. 
     public static String acceptSRTurnInput()
     {
         String userMove = "";
@@ -163,7 +167,6 @@ public class Input
                 
                 String[] acceptableInput = new String[]{"s","d","right","skip"};
                 List acceptableInputList = Arrays.asList(acceptableInput);
-                // if ((userMove.equals("a"))) //|| (userMove != "s") || (userMove != "d") || (userMove != "left") || (userMove != "skip") || (userMove != "right"))
                 if (!(acceptableInputList.contains(userMove)))
                 {
                     Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
@@ -173,11 +176,11 @@ public class Input
                 if (userMove == "d") {userMove = "right";}
             }
         } while (userMove == "");
-        // System.out.println("user selected " + userMove);
         Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
         return userMove;
     }
 
+    // game method to accept Left/Skip. Forms part of game control, user cannot select a non-valid option to move player.
     public static String acceptLSTurnInput()
     {
         String userMove = "";
@@ -199,7 +202,6 @@ public class Input
                 
                 String[] acceptableInput = new String[]{"a","s","left","skip"};
                 List acceptableInputList = Arrays.asList(acceptableInput);
-                // if ((userMove.equals("a"))) //|| (userMove != "s") || (userMove != "d") || (userMove != "left") || (userMove != "skip") || (userMove != "right"))
                 if (!(acceptableInputList.contains(userMove)))
                 {
                     Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
@@ -209,11 +211,11 @@ public class Input
                 if (userMove == "s") {userMove = "skip";}
             }
         } while (userMove == "");
-        // System.out.println("user selected " + userMove);
         Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
         return userMove;
     }
 
+    // game method to accept Skip Turn only. Forms part of game control, user cannot select a non-valid option. 
     public static String acceptSkipTurnInput()
     {
         String userMove = "";
@@ -235,7 +237,6 @@ public class Input
                 
                 String[] acceptableInput = new String[]{"s","skip"};
                 List acceptableInputList = Arrays.asList(acceptableInput);
-                // if ((userMove.equals("a"))) //|| (userMove != "s") || (userMove != "d") || (userMove != "left") || (userMove != "skip") || (userMove != "right"))
                 if (!(acceptableInputList.contains(userMove)))
                 {
                     Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
@@ -244,7 +245,6 @@ public class Input
                 if (userMove == "s") {userMove = "skip";}
             }
         } while (userMove == "");
-        // System.out.println("user selected " + userMove);
         Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
         return userMove;
     }

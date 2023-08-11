@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class RandomCalcs
 {
+    // method returns a value between 1 and 5, mainly for randomising building heights 
     public static int getRandomBuildingHeight()
     {
         Random random = new Random();
@@ -13,6 +14,7 @@ public class RandomCalcs
         return randomBuildingHeight;
     }
 
+    // method returns a random boolean, used to help randomise aspects of the game 
     public static boolean getRandomBoolean()
     {
         Random random = new Random();
@@ -20,6 +22,7 @@ public class RandomCalcs
         return randomBoolean;
     }
 
+    // selects a building from 1-15 for web trap, fuel cell and freeze condition  
     public static int selectRandomBuilding()
     {
         Random random = new Random();

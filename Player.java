@@ -1,4 +1,4 @@
-// Player Class - for Player object 
+// Player Class - stores Player data 
 // Author: David Sharp
 // Version: 1.0
 
@@ -27,6 +27,7 @@ public class Player
         return ("Player Name: " + this.playerName + "; Player Fuel Cells Found: " + this.fuelCellsFound);
     }
 
+    // Key method - gets the player name and validates for correct entry 
     public String inputPlayerName()
     {
         String name = "";

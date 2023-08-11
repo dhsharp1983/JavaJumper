@@ -84,6 +84,9 @@ public class Jumper
             Log.addToFullLog(gameEngine.displayBuildings());
             Log.addToFullLog(gameEngine.getJumpCalcs().display());
 
+            // display Frame
+            
+
             // get user input
             boolean canJumpAtAll = jumpCalcs.getCanJumpAtAll();
             boolean canJumpLeft = jumpCalcs.getCanJumpLeft();

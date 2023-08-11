@@ -28,6 +28,11 @@ public class RenderDisplay
         System.out.flush();  
     }
 
+    public void displayFrame()
+    {
+        
+    }
+
     public void renderBuildingGraphics()
     {
         buildingGraphics = new BuildingGraphic[16];
@@ -55,7 +60,7 @@ public class RenderDisplay
     public void renderDisplayLines()
     {
         displayLines = new String[15];
-        for (int line = 0; line < 15; line++)
+        for (int line = 0; line < 14; line++)
         {
             String content = "  ";
             for (int col = 1; col <= 15; col++)

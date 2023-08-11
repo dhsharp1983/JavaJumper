@@ -666,3 +666,19 @@ Building #: 13;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPolice
 Building #: 14;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
 Building #: 15;  Height: 5;  HasExitPortal:true;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
 
+Building #: 1;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 2;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 3;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 4;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 5;  Height: 5;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 6;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 7;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 8;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 9;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 10;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false
+Building #: 11;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 12;  Height: 5;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 13;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 14;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+Building #: 15;  Height: 5;  HasExitPortal:true;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+

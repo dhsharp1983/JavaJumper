@@ -20,6 +20,8 @@ public class Jumper
     // private Buildings buildings;
     // private JumpPack jumpPack;
     private GameEngine gameEngine;
+    private boolean winCondition;
+    private boolean lossCondition;
 
     public Jumper()
     {
@@ -72,7 +74,7 @@ public class Jumper
         gameEngine.setPlayerOnBuilding(1);
         gameEngine.setGameTurn(1);
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 9999; i++)
         {
             // log start
             Log.addToFullLog(Log.breakLine);
@@ -85,7 +87,11 @@ public class Jumper
             Log.addToFullLog(gameEngine.getJumpCalcs().display());
 
             // display Frame
-            
+            renderDisplay.renderBuildingGraphics();
+            renderDisplay.renderBuildingLines();
+            renderDisplay.renderTopDisplayLines("");
+            renderDisplay.clearScreen();
+            renderDisplay.displayFrame();
 
             // get user input
             boolean canJumpAtAll = jumpCalcs.getCanJumpAtAll();
@@ -111,9 +117,18 @@ public class Jumper
             gameEngine.respawnFuelCells();
             gameEngine.setGameTurn(gameEngine.getGameTurn() + 1);
             System.out.println(gameEngine.displayGameStats());
+            if (gameEngine.getPlayerOnBuilding() == 15)
+            {
+                jumper.winCondition = true;
+                jumper.lossCondition = false;
+                renderDisplay.displayInputText("You win!");
+                System.exit(0);
+            }
             if (gameEngine.getJumpPack().getBatteryLevel() < 1)
             {
                 //loseGame()
+                jumper.winCondition = false;
+                jumper.lossCondition = true;
                 renderDisplay.displayInputText("You lose");
                 System.exit(0);
             }

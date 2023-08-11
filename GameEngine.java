@@ -12,6 +12,7 @@ public class GameEngine
     private Player player;
     private int gameTurn;
     private int playerOnBuilding;
+
     
 
 
@@ -140,7 +141,7 @@ public class GameEngine
         // System.out.println("currentbuilding " + currentBuilding + " currentheight:" + currentHeight);
 
         // can only jump right to building 15 and not past it
-        if ((currentBuilding + currentHeight) >= 15)
+        if ((currentBuilding + currentHeight) > 15)
             // this.canJumpRight = false;
             jumpCalcs.setCanJumpRight(false);
         else if ((currentBuilding + currentHeight) <= 15)
@@ -321,7 +322,7 @@ public class GameEngine
 
     public int getPlayerOnBuilding()
     {
-        return this.getPlayerOnBuilding();
+        return this.playerOnBuilding;
     }
 
     // method to move the Frozen condition to a random building, get input paramater from RandomCalcs.selectRandomBuilding

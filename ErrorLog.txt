@@ -1,1 +1,9 @@
 Log Initialised
+Turn 1 - JumpCalcs Left Target Building - Array Probably Out of Bounds: Index -1 out of bounds for length 16
+acceptUserTurnInput(): userMove value not in acceptable input list: rigght
+Turn 2 - JumpCalcs Left Target Building - Array Probably Out of Bounds: Index -1 out of bounds for length 16
+Turn 4 - JumpCalcs Right Target Building - Array Probably Out of Bounds: Index 17 out of bounds for length 16
+Turn 5 - JumpCalcs Right Target Building - Array Probably Out of Bounds: Index 16 out of bounds for length 16
+Turn 6 - JumpCalcs Right Target Building - Array Probably Out of Bounds: Index 17 out of bounds for length 16
+Turn 7 - JumpCalcs Right Target Building - Array Probably Out of Bounds: Index 17 out of bounds for length 16
+Turn 8 - JumpCalcs Right Target Building - Array Probably Out of Bounds: Index 17 out of bounds for length 16

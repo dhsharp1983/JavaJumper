@@ -14,7 +14,9 @@ public class Test {
         // System.out.println(jumper.getGameEngine().displayOneBuilding(15));
         RenderDisplay renderDisplay = new RenderDisplay(jumper);
         renderDisplay.renderBuildingGraphics();
-        renderDisplay.renderDisplayLines();
+        // renderDisplay.renderDisplayLines();"
+
+        
         // jumper.startGame(jumper);
 
 

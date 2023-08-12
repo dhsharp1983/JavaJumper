@@ -73,7 +73,7 @@ public class Jumper
             // display Frame
             renderDisplay.renderBuildingGraphics();
             renderDisplay.renderBuildingLines();
-            renderDisplay.renderTopDisplayLines("");
+            renderDisplay.renderTopDisplayLines(gameEngine.userFeedbackMessage());
             renderDisplay.clearScreen();
             renderDisplay.displayFrame();
 
@@ -118,7 +118,7 @@ public class Jumper
             }
 
             // evaluate if player is out of fuel, set loss condition 
-            if (gameEngine.getJumpPack().getBatteryLevel() < 1)
+            else if (gameEngine.getJumpPack().getBatteryLevel() < 1)
             {
                 //loseGame()
                 winCondition = false;

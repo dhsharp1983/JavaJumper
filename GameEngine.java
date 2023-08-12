@@ -160,19 +160,36 @@ public class GameEngine
             jumpRightFuelNeeded += 5;
         }
 
-        // calculate parameters for jumping LEFT 
+        // calculate parameters for jumping LEFT & set values. 
+        // check battery has enough fuel left for jump. 
         try 
         {
             leftTargetBuildingNumber = playerOnBuilding - buildings[playerOnBuilding].getHeight();
             leftTargetBuildingHeight = buildings[leftTargetBuildingNumber].getHeight();
             jumpLeftHeightDiff = Math.abs(leftTargetBuildingHeight - currentHeight);
             jumpLeftFuelNeeded += jumpLeftHeightDiff;
-            // if (jumpLeftFuelNeeded <= jumpPack.getBatteryLevel())
             jumpCalcs.setJumpLeftFuelNeeded(jumpLeftFuelNeeded);
             jumpCalcs.setJumpLeftTargetBuilding(leftTargetBuildingNumber);
             jumpCalcs.setJumpLeftBuildingHeight(leftTargetBuildingHeight);
             jumpCalcs.setJumpLeftHeightDiff(jumpLeftHeightDiff);
             jumpCalcs.setJumpLeftDistance(currentHeight);
+            // if (jumpLeftFuelNeeded <= jumpPack.getBatteryLevel())
+            // {
+            //     jumpCalcs.setJumpLeftFuelNeeded(jumpLeftFuelNeeded);
+            //     jumpCalcs.setJumpLeftTargetBuilding(leftTargetBuildingNumber);
+            //     jumpCalcs.setJumpLeftBuildingHeight(leftTargetBuildingHeight);
+            //     jumpCalcs.setJumpLeftHeightDiff(jumpLeftHeightDiff);
+            //     jumpCalcs.setJumpLeftDistance(currentHeight);
+            // }
+            if (jumpLeftFuelNeeded > jumpPack.getBatteryLevel())
+            {
+                jumpCalcs.setCanJumpLeft(false);
+                // jumpCalcs.setJumpLeftFuelNeeded(0);
+                // jumpCalcs.setJumpLeftTargetBuilding(0);
+                // jumpCalcs.setJumpLeftBuildingHeight(0);
+                // jumpCalcs.setJumpLeftHeightDiff(0);
+                // jumpCalcs.setJumpLeftDistance(0);
+            }
         } 
         catch (Exception e) 
         {
@@ -186,6 +203,7 @@ public class GameEngine
         }
 
         // calculate parameters for jumping RIGHT
+        // check battery has enough fuel left for jump. 
         try 
         {
             rightTargetBuildingNumber = playerOnBuilding + buildings[playerOnBuilding].getHeight();
@@ -197,6 +215,24 @@ public class GameEngine
             jumpCalcs.setJumpRightBuildingHeight(rightTargetBuildingHeight);
             jumpCalcs.setJumpRightHeightDiff(jumpRightHeightDiff);
             jumpCalcs.setJumpRightDistance(currentHeight);
+            // if (jumpRightFuelNeeded <= jumpPack.getBatteryLevel())
+            // {
+            //     jumpCalcs.setJumpRightFuelNeeded(jumpRightFuelNeeded);
+            //     jumpCalcs.setJumpRightTargetBuilding(rightTargetBuildingNumber);
+            //     jumpCalcs.setJumpRightBuildingHeight(rightTargetBuildingHeight);
+            //     jumpCalcs.setJumpRightHeightDiff(jumpRightHeightDiff);
+            //     jumpCalcs.setJumpRightDistance(currentHeight);
+            // }
+            if (jumpRightFuelNeeded > jumpPack.getBatteryLevel())
+            {
+                jumpCalcs.setCanJumpRight(false);
+                // jumpCalcs.setJumpRightFuelNeeded(0);
+                // jumpCalcs.setJumpRightTargetBuilding(0);
+                // jumpCalcs.setJumpRightBuildingHeight(0);
+                // jumpCalcs.setJumpRightHeightDiff(0);
+                // jumpCalcs.setJumpRightDistance(0);            
+            }
+
         } 
         catch (Exception e) 
         {
@@ -410,6 +446,38 @@ public class GameEngine
     {
         jumpPack.depleteBattery(1);
         Log.addToFullLog("skipTurn(): " + displayGameStats());
+    }
+
+    public String userFeedbackMessage()
+    {
+        String returnString = "";
+        int bldWithPoliceWeb = 0;
+        int bldWithFrozenCondition = 0;
+        for (int i = 1; i < buildings.length; i++)
+        {
+            if (buildings[i].getHasPoliceWeb() == true) {bldWithPoliceWeb = i;}
+        }
+        if (bldWithPoliceWeb == playerOnBuilding)
+        {
+            returnString += "You hit the police web! Extra fuel is required to jump. ";
+        }
+        for (int i = 1; i < buildings.length; i++)
+        {
+            if (buildings[i].getHasFrozen() == true) {bldWithFrozenCondition = i;}
+        }
+        if (bldWithFrozenCondition == playerOnBuilding)
+        {
+            returnString += "You hit the frozen building! You must skip a turn. ";
+        }
+        if (jumpCalcs.getJumpLeftFuelNeeded() > jumpPack.getBatteryLevel())
+        {
+            returnString += "You don't have enough fuel to jump Left. ";
+        }
+        if (jumpCalcs.getJumpRightFuelNeeded() > jumpPack.getBatteryLevel())
+        {
+            returnString += "You don't have enough fuel to jump right. ";
+        }
+        return returnString;
     }
 }
 

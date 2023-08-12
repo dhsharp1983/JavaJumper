@@ -76,8 +76,8 @@ public class RenderDisplay
             {
                 if (j == 0) {buildingGraphics[i].setSingleBuildingColumnLine(BUILDING_CHARS[5], j);} // sets ground ~~~
                 else if ((j <= colStoreys) && (gameEngine.getBuilding(i).getHasFrozen() == true)) {buildingGraphics[i].setSingleBuildingColumnLine(BUILDING_CHARS[3], j);} // sets building frozen chars ***
+                else if ((j <= colStoreys) && (gameEngine.getBuilding(i).getHasPoliceWeb() == true)) {buildingGraphics[i].setSingleBuildingColumnLine(BUILDING_CHARS[4], j);} // sets police web #%#
                 else if (j <= colStoreys) {buildingGraphics[i].setSingleBuildingColumnLine(BUILDING_CHARS[1], j);} // sets storey chars ---
-                else if ((j == colRoof) && (gameEngine.getBuilding(i).getHasPoliceWeb() == true)) {buildingGraphics[i].setSingleBuildingColumnLine(BUILDING_CHARS[4], j);} // sets police web #%#
                 else if (j == colRoof) {buildingGraphics[i].setSingleBuildingColumnLine(BUILDING_CHARS[2], j);} // sets roof char ===
                 else if ((j == (colRoof + 1)) && (isPlayerOnBuilding == true)) {buildingGraphics[i].setSingleBuildingColumnLine(PLAYER_CHARS[2], j);} // add bottom row player char
                 else if ((j == (colRoof + 2)) && (isPlayerOnBuilding == true)) {buildingGraphics[i].setSingleBuildingColumnLine(PLAYER_CHARS[1], j);} // add middle row player char 

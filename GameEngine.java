@@ -93,6 +93,13 @@ public class GameEngine
         return returnString;
     }
 
+    // method to display some key game stats 
+    public String displayGameStats()
+    {
+        String returnString = "Turn:" + gameTurn + ";  PlayerOnBuilding:" + playerOnBuilding + ";  jumpPackCharge:" + jumpPack.getBatteryLevel();
+        return returnString;
+    }
+
     // method to display a single building 
     public String displayOneBuilding(int index)
     {
@@ -105,23 +112,16 @@ public class GameEngine
         return this.jumpPack.display();
     }
 
-    // method to display details of the Player 
-    public String displayPlayer()
-    {
-        return this.player.display();
-    }
-
     // method to display details of the Jump Calculations 
     public String displayJumpCalcs()
     {
         return this.jumpCalcs.display();
     }
 
-    // method to display some key game stats 
-    public String displayGameStats()
+    // method to display details of the Player 
+    public String displayPlayer()
     {
-        String returnString = "Turn:" + gameTurn + ";  PlayerOnBuilding:" + playerOnBuilding + ";  jumpPackCharge:" + jumpPack.getBatteryLevel();
-        return returnString;
+        return this.player.display();
     }
 
     // key method - performs jump calculations and saves them in jumpCalcs

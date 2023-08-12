@@ -27,6 +27,18 @@ public class Player
         return ("Player Name: " + this.playerName + "; Player Fuel Cells Found: " + this.fuelCellsFound);
     }
 
+    // retrieve how many fuel cells the player has found 
+    public int getFuelCellsFound()
+    {
+        return this.fuelCellsFound;
+    }
+
+    // retrieve the player's name 
+    public String getPlayerName()
+    {
+        return this.playerName;
+    }
+
     // Key method - gets the player name and validates for correct entry 
     public String inputPlayerName()
     {
@@ -66,17 +78,6 @@ public class Player
         return playerName;
     }
 
-    // retrieve how many fuel cells the player has found 
-    public int getFuelCellsFound()
-    {
-        return this.fuelCellsFound;
-    }
-
-    // retrieve the player's name 
-    public String getPlayerName()
-    {
-        return this.playerName;
-    }
 
     // set how many fuel cells the player has found 
     public void setFuelCellsFound(int fuelCellsFound)

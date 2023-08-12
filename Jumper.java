@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 public class Jumper 
 {
     private GameEngine gameEngine;
-    
 
     // default constructor only as this is a primary client class 
     public Jumper()

@@ -9,16 +9,16 @@ public class RenderDisplay
 {
     private Jumper jumper;
     private GameEngine gameEngine;
-    private String welcomeScreen;
-    private String instructionScreen;
-    private String endScreen;
+    // private String welcomeScreen;
+    // private String instructionScreen;
+    // private String endScreen;
     private BuildingGraphic[] buildingGraphics;
     private String[] buildingLines;
     private String[] topDisplayLines;
     private final String[] PLAYER_CHARS = new String[]{"~o/","/| ","/ \\"};
     private final String[] EXITPORTAL_CHARS = new String[]{"@@@","@ @","@@@"};
     private final String[] BUILDING_CHARS = new String[]{"   ","---","===","***","#%#","~~~"};
-    private final String[] FUEL_CHARS = new String[]{" % "};
+    // private final String[] FUEL_CHARS = new String[]{" % "};
 
     // primary client class has a limited default constructor only. 
     // Actively uses data in jumper object. Must be passed in.
@@ -26,9 +26,9 @@ public class RenderDisplay
     {
         this.jumper = jumper;
         this.gameEngine = jumper.getGameEngine();
-        welcomeScreen = "";
-        instructionScreen = "";
-        endScreen = "";
+        // welcomeScreen = "";
+        // instructionScreen = "";
+        // endScreen = "";
     }
 
     // clears the screen for frame display 
@@ -51,6 +51,37 @@ public class RenderDisplay
             System.out.println(buildingLines[i-1]);
         }
     }
+
+    // prints out input text to screen 
+    public void displayInputText(String inputText)
+    {
+        System.out.println(inputText);
+    }
+
+    // outputs an instructions screen 
+    public String instructions()
+    {
+        String instructions = "" +
+            "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+            "                                    INSTRUCTIONS                                 \n" +
+            "   Escape the nowhere dimension.                                         @@@\n" +
+            "   Jump to the exit portal on the far building!   >>                     @ @\n" +
+            "                                                                    ===  @@@\n" +
+            "   Avoid the police web!! #%#                     >>                #%#  ===\n" +
+            "   This burns additional fuel.                                      #%#  ---\n" +
+            "                                                               ===  #%#  ---\n" +
+            "   Avoid the frozen building!!  ***               >>           ***  #%#  ---\n" +
+            "   This freezes you in place.                                               \n" +
+            "                                                           @   ***  #%#  ---\n" +
+            "   Collect @ fuel cells for extra fuel.           >>      ===  ***  #%#  ---\n" +
+            "   Each one gives 5 points.                               ---  ***  #%#  ---\n" +
+            "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+            "   Your jump left or right is equivilant to the building height.                   \n" + 
+            "   Ordinary fuel burn is determined by the height difference of the buildings.     \n" + 
+            "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        return instructions;
+    }
+
 
     // renders the graphics for the buildings.
     // each element in the buildingGraphics array represents a single building (column).
@@ -112,46 +143,67 @@ public class RenderDisplay
     // creates the top section of the frame for printing messages and instructions 
     public void renderTopDisplayLines(String messageInput)
     {
-        this.topDisplayLines = new String[6];
+        String turn = Integer.toString(jumper.getGameEngine().getGameTurn());
+        String fuelLeft = Integer.toString(jumper.getGameEngine().getJumpPack().getBatteryLevel());
+        String targetLeft = Integer.toString(jumper.getGameEngine().getJumpCalcs().getJumpLeftTargetBuilding());
+        String targetRight = Integer.toString(jumper.getGameEngine().getJumpCalcs().getJumpRightTargetBuilding());
+        if (targetLeft.equals("0")) {targetLeft = "";}
+        if (targetRight.equals("0")) {targetRight = "";}
+        
+        this.topDisplayLines = new String[7];
         topDisplayLines[0] = "                                 JAVA JUMPER!                                  ";
         topDisplayLines[1] = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
         // topDisplayLines[2] = "                                                                               ";
-        topDisplayLines[2] = "         Turn: " + jumper.getGameEngine().getGameTurn() + "                                                               ";
-        topDisplayLines[3] = "    Fuel Left: " + jumper.getGameEngine().getJumpPack().getBatteryLevel() + "                                                                ";
-        // topDisplayLines[5] = "                                                                               ";
-        topDisplayLines[4] = " " + messageInput;
+        topDisplayLines[2] = "         Turn: " + turn + "                                                               ";
+        topDisplayLines[3] = "    Fuel Left: " + fuelLeft + "                                                                ";
+        topDisplayLines[4] = "    Left Target Bld: " + targetLeft + "    Right Target Bld: " + targetRight;
+        topDisplayLines[5] = " " + messageInput;
         // topDisplayLines[7] = "                                                                               ";
-        topDisplayLines[5] = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+        topDisplayLines[6] = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     }
 
-    // prints out input text to screen 
-    public void displayInputText(String inputText)
-    {
-        System.out.println(inputText);
-    }
 
     // prints welcome screen 
     public void printWelcomeScreen()
     {
         System.out.println(welcomeAsciiArt());
+        System.out.println(instructions());
     }
 
     public String welcomeAsciiArt()
     {
-        String javaJumper = "        ██  █████  ██    ██  █████                 \n" + 
+        String javaJumper = "\n        ██  █████  ██    ██  █████                 \n" + 
 "        ██ ██   ██ ██    ██ ██   ██                \n" +
 "        ██ ███████ ██    ██ ███████                \n" + 
 "   ██   ██ ██   ██  ██  ██  ██   ██                \n" + 
 "    █████  ██   ██   ████   ██   ██                \n" + 
-"                                                   \n" + 
 "                                                   \n" + 
 "    ██ ██    ██ ███    ███ ██████  ███████ ██████  \n" + 
 "    ██ ██    ██ ████  ████ ██   ██ ██      ██   ██ \n" + 
 "    ██ ██    ██ ██ ████ ██ ██████  █████   ██████  \n" + 
 "█   ██ ██    ██ ██  ██  ██ ██      ██      ██   ██ \n" + 
 "█████   ██████  ██      ██ ██      ███████ ██   ██ \n" + 
-"                                                   \n" + 
 "                                                   \n";
     return javaJumper;
     }
+
+
+
+    // public String instructions()
+    // {
+    //     String instructions = ""+
+    //         "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+    //         "                                    INSTRUCTIONS                                 \n" +
+    //         "                                                                         @@@\n" +
+    //         "   Jump to the exit portal on the far building!   >>                     @ @\n" +
+    //         "                                                                    ===  @@@\n" +
+    //         "   Avoid the police web!! #%#                     >>                #%#  ===\n" +
+    //         "                                                               ===  #%#  ---\n" +
+    //         "   Avoid the frozen building!!  ***               >>           ***  #%#  ---\n" +
+    //         "                                                           @   ***  #%#  ---\n" +
+    //         "   Collect @ fuel cells for extra fuel.           >>      ===  ***  #%#  ---\n" +
+    //         "   Each one gives 5 points.                               ---  ***  #%#  ---\n" +
+    //         "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+    //     return instructions;
+    // }
 }

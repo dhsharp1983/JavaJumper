@@ -1,21 +1,21 @@
 public class BuildingGraphic 
 {
     private String[] buildingColumn;
-    private int buildingNumber;
+    // private int buildingNumber;
     // private final String[] PLAYER_CHARS = new String[]{"~o/","/| ","/ \\"};
     // private final String[] BUILDING_CHARS = new String[]{"   ","---","==="};
 
     // default constructor 
     public BuildingGraphic()
     {
-        this.buildingNumber = 0;
+        // this.buildingNumber = 0;
         this.buildingColumn = new String[]{"abc"};
     }
     
     // non-default constructor 
     public BuildingGraphic(int buildingNumber)
     {
-        this.buildingNumber = buildingNumber;
+        // this.buildingNumber = buildingNumber;
         this.buildingColumn = new String[14]; // 14 lines of 3 chars each 
     }
 

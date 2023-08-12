@@ -1,9 +1,9 @@
 
-Thanks for playing dave!
-You lost. But better luck next time.
+Thanks for playing Dave!
+Congratulations on winning!
 
 Game Stats:
 --------------------------------
-Turns played: 7
-Fuel Cells Found: 0
+Turns played: 9
+Fuel Cells Found: 2
 

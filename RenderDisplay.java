@@ -3,6 +3,8 @@
 // Author: David Sharp
 // Version: 1.1 
 
+// ascii art credits: https://patorjk.com/software/taag/#p=display&h=0&v=0&f=ANSI%20Regular&t=%20Java%20%0AJumper 
+
 public class RenderDisplay 
 {
     private Jumper jumper;
@@ -131,6 +133,25 @@ public class RenderDisplay
     // prints welcome screen 
     public void printWelcomeScreen()
     {
-        System.out.println("WELCOME TO JAVA JUMPER");
+        System.out.println(welcomeAsciiArt());
+    }
+
+    public String welcomeAsciiArt()
+    {
+        String javaJumper = "        ██  █████  ██    ██  █████                 \n" + 
+"        ██ ██   ██ ██    ██ ██   ██                \n" +
+"        ██ ███████ ██    ██ ███████                \n" + 
+"   ██   ██ ██   ██  ██  ██  ██   ██                \n" + 
+"    █████  ██   ██   ████   ██   ██                \n" + 
+"                                                   \n" + 
+"                                                   \n" + 
+"    ██ ██    ██ ███    ███ ██████  ███████ ██████  \n" + 
+"    ██ ██    ██ ████  ████ ██   ██ ██      ██   ██ \n" + 
+"    ██ ██    ██ ██ ████ ██ ██████  █████   ██████  \n" + 
+"█   ██ ██    ██ ██  ██  ██ ██      ██      ██   ██ \n" + 
+"█████   ██████  ██      ██ ██      ███████ ██   ██ \n" + 
+"                                                   \n" + 
+"                                                   \n";
+    return javaJumper;
     }
 }

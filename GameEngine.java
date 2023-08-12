@@ -167,6 +167,7 @@ public class GameEngine
             leftTargetBuildingHeight = buildings[leftTargetBuildingNumber].getHeight();
             jumpLeftHeightDiff = Math.abs(leftTargetBuildingHeight - currentHeight);
             jumpLeftFuelNeeded += jumpLeftHeightDiff;
+            // if (jumpLeftFuelNeeded <= jumpPack.getBatteryLevel())
             jumpCalcs.setJumpLeftFuelNeeded(jumpLeftFuelNeeded);
             jumpCalcs.setJumpLeftTargetBuilding(leftTargetBuildingNumber);
             jumpCalcs.setJumpLeftBuildingHeight(leftTargetBuildingHeight);
@@ -237,6 +238,7 @@ public class GameEngine
             {
                 jumpPack.chargeBattery(5);
                 buildings[jumpCalcs.getJumpLeftTargetBuilding()].setHasFuelCell(false);
+                player.setFuelCellsFound((player.getFuelCellsFound() + 1));
             }
         Log.addToFullLog("executeJump(left): " + displayGameStats());
         }
@@ -250,6 +252,7 @@ public class GameEngine
             {
                 jumpPack.chargeBattery(5);
                 buildings[jumpCalcs.getJumpRightTargetBuilding()].setHasFuelCell(false);
+                player.setFuelCellsFound((player.getFuelCellsFound() + 1));
             }
             Log.addToFullLog("executeJump(right): " + displayGameStats());
         }

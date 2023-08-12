@@ -32,6 +32,7 @@ public class Jumper
         // set additional variables 
         boolean winCondition = false;
         boolean lossCondition = false;
+        boolean stopGame = false;
         
         // initialise - create objects 
         Log.initErrorLog();
@@ -54,7 +55,8 @@ public class Jumper
         gameEngine.setGameTurn(1);
 
         // loop gameplay 
-        for (int i = 0; i < 9999; i++)
+        // for (int i = 0; i < 9999; i++)
+        do
         {
             // log start
             Log.addToFullLog(Log.breakLine);
@@ -90,6 +92,7 @@ public class Jumper
         
             // execute jump 
             gameEngine.executeJump(userMove);
+            Log.addToFullLog("Jumper Main received userMove: " + userMove);
 
             // post jump changes 
             gameEngine.setGameTurn(gameEngine.getGameTurn() + 1);
@@ -97,15 +100,21 @@ public class Jumper
             gameEngine.moveFrozenBuilding(RandomCalcs.selectRandomBuilding());
             gameEngine.moveWebTrap(RandomCalcs.selectRandomBuilding());
             gameEngine.respawnFuelCells();
-            System.out.println(gameEngine.displayGameStats());
+            // System.out.println(gameEngine.displayGameStats());
 
             // evaluate if player is on building 15 for exit portal, set win condition 
             if (gameEngine.getPlayerOnBuilding() == 15)
             {
                 winCondition = true;
                 lossCondition = false;
-                renderDisplay.displayInputText("You win!");
-                System.exit(0);
+                stopGame = true;
+                renderDisplay.renderBuildingGraphics();
+                renderDisplay.renderBuildingLines();
+                renderDisplay.renderTopDisplayLines("");
+                renderDisplay.clearScreen();
+                renderDisplay.displayFrame();
+                // renderDisplay.displayInputText("You win!");
+                // System.exit(0);
             }
 
             // evaluate if player is out of fuel, set loss condition 
@@ -114,10 +123,15 @@ public class Jumper
                 //loseGame()
                 winCondition = false;
                 lossCondition = true;
-                renderDisplay.displayInputText("You lose");
-                System.exit(0);
+                stopGame = true;
+                // renderDisplay.displayInputText("You lose");
+                // System.exit(0);
             }
-        } // end gameplay loop 
+        } while (stopGame == false); // end gameplay loop when stopGame condition is met
+
+        // write to output file at end
+        Log.writeEndGameOutput("outcome.txt",gameEngine.getPlayer().getPlayerName(),gameEngine.getGameTurn(),gameEngine.getPlayer().getFuelCellsFound(),winCondition,lossCondition);
+        
     // end of Main     
     } 
 
@@ -125,7 +139,7 @@ public class Jumper
     public void startGame()
     {
         System.out.print("Game starting in:  ");
-        for (int i = 1; i >= 0; i--) // change i to 3 for prod 
+        for (int i = 3; i >= 0; i--) // change i to 3 for prod 
         {
             try 
             {

@@ -1,0 +1,9 @@
+
+Thanks for playing Jess!
+You lost. But better luck next time.
+
+Game Stats:
+--------------------------------
+Turns played: 7
+Fuel Cells Found: 0
+

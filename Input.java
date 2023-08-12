@@ -136,13 +136,16 @@ public class Input
                     Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
                     userMove = "";
                 }
-                if (userMove == "a") {userMove = "left";}
-                if (userMove == "s") {userMove = "skip";}
-                if (userMove == "d") {userMove = "right";}
+                // if (userMove == "a") {userMove = "left";}
+                // if (userMove == "s") {userMove = "skip";}
+                // if (userMove == "d") {userMove = "right";}
             }
         } while (userMove == "");
-        Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
-        return userMove;
+        Log.addToFullLog("acceptLSRTurnInput(): user selected " + userMove);
+        if (userMove.equals("s")) {return "skip";}
+        else if (userMove.equals("a")) {return "left";}
+        else if (userMove.equals("d")) {return "right";}
+        else return userMove;        
     }
 
     // game method to accept Skip/Right. Forms part of game control, user cannot select a non-valid option to move player. 
@@ -172,12 +175,14 @@ public class Input
                     Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
                     userMove = "";
                 }
-                if (userMove == "s") {userMove = "skip";}
-                if (userMove == "d") {userMove = "right";}
+                // if (userMove == "s") {userMove = "skip";}
+                // if (userMove == "d") {userMove = "right";}
             }
         } while (userMove == "");
-        Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
-        return userMove;
+        Log.addToFullLog("acceptSRTurnInput(): user selected " + userMove);
+        if (userMove.equals("s")) {return "skip";}
+        else if (userMove.equals("d")) {return "right";}
+        else return userMove;
     }
 
     // game method to accept Left/Skip. Forms part of game control, user cannot select a non-valid option to move player.
@@ -207,12 +212,14 @@ public class Input
                     Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
                     userMove = "";
                 }
-                if (userMove == "a") {userMove = "left";}
-                if (userMove == "s") {userMove = "skip";}
+                // if (userMove == "a") {userMove = "left";}
+                // if (userMove == "s") {userMove = "skip";}
             }
         } while (userMove == "");
-        Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
-        return userMove;
+        Log.addToFullLog("acceptLSTurnInput(): user selected " + userMove);
+        if (userMove.equals("s")) {return "skip";}
+        else if (userMove.equals("a")) {return "left";}
+        else return userMove;
     }
 
     // game method to accept Skip Turn only. Forms part of game control, user cannot select a non-valid option. 
@@ -245,8 +252,9 @@ public class Input
                 if (userMove == "s") {userMove = "skip";}
             }
         } while (userMove == "");
-        Log.addToFullLog("acceptUserTurnInput(): user selected " + userMove);
-        return userMove;
+        Log.addToFullLog("acceptSkipTurnInput(): user selected " + userMove);
+        if (userMove.equals("s")) {return "skip";}
+        else return userMove;
     }
 
 }

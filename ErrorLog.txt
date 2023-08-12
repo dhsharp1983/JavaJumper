@@ -1,2 +1,1 @@
 Log Initialised
-Turn 1 - JumpCalcs Left Target Building - Array Probably Out of Bounds: Index -1 out of bounds for length 16

@@ -6,6 +6,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.io.BufferedWriter;
 public class Log 
 {
@@ -96,5 +97,31 @@ public class Log
             fullLogFile.delete();
         }
     addToFullLog("Log Initialised");
+    }
+
+    public static void writeEndGameOutput(String filename, String playerName, int turnsTaken, int fuelCellsFound, boolean winCondition, boolean lossCondition)
+    {
+        ArrayList<String> outputLines = new ArrayList<String>();
+        outputLines.add("\nThanks for playing " + playerName + "!");
+        if (winCondition == true) {outputLines.add("Congratulations on winning!");}
+        else if (lossCondition == true) {outputLines.add("You lost. But better luck next time.");}
+        outputLines.add("\nGame Stats:");
+        outputLines.add("--------------------------------");
+        outputLines.add("Turns played: " + turnsTaken);
+        outputLines.add("Fuel Cells Found: " + fuelCellsFound);
+        String outputString = "";
+        for (int i = 0; i < outputLines.size(); i++)
+        {
+            outputString = outputString + outputLines.get(i) + "\n";
+        }
+        try
+        {
+            System.out.println(outputString);
+            FileIO.writeFile(outputString, filename);
+        }
+        catch(Exception e)
+        {
+            Log.addToErrorLog("Error writing endgame file " + filename + ":" + e.getMessage());
+        }
     }
 }

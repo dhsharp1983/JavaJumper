@@ -62,7 +62,4 @@ public class FileIO
             Log.addToErrorLog("FileIO writeFile(): could not open file to write to:" + e.getMessage());
         }
     }
-
-
-
 }

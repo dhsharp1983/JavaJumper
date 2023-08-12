@@ -77,13 +77,21 @@ public class JumpCalcs
     // displays values 
     public String display()
     {
-        String returnString = "canJumpLeft:" + this.canJumpLeft + ";  canJumpRight:" + this.canJumpRight
-         + ";  canJumpAtAll:" + this.canJumpAtAll + ";  jumpLeftDistance:" + this.jumpLeftDistance + ";  jumpRightDistance:" + jumpRightDistance
-         + ";  jumpLeftFuelNeeded:" + this.jumpLeftFuelNeeded + ";  jumpRightFuelNeeded:" + this.jumpRightFuelNeeded 
-         + ";  jumpLeftTargetBuilding:" + this.jumpLeftTargetBuilding + ";  jumpRightTargetBuilding:" + this.jumpRightTargetBuilding 
-         + ";  jumpLeftBuildingHeight:" + this.jumpLeftBuildingHeight + ";  jumpRightBuildingHeight:" + this.jumpRightBuildingHeight
-         + ";  jumpLeftHeightDiff:" + jumpLeftHeightDiff + ";  jumpRightHeightDiff:" + jumpRightHeightDiff;
+        // String returnString = "canJumpLeft:" + this.canJumpLeft + ";  canJumpRight:" + this.canJumpRight
+        //  + ";  canJumpAtAll:" + this.canJumpAtAll + ";  jumpLeftDistance:" + this.jumpLeftDistance + ";  jumpRightDistance:" + jumpRightDistance
+        //  + ";  jumpLeftFuelNeeded:" + this.jumpLeftFuelNeeded + ";  jumpRightFuelNeeded:" + this.jumpRightFuelNeeded 
+        //  + ";  jumpLeftTargetBuilding:" + this.jumpLeftTargetBuilding + ";  jumpRightTargetBuilding:" + this.jumpRightTargetBuilding 
+        //  + ";  jumpLeftBuildingHeight:" + this.jumpLeftBuildingHeight + ";  jumpRightBuildingHeight:" + this.jumpRightBuildingHeight
+        //  + ";  jumpLeftHeightDiff:" + jumpLeftHeightDiff + ";  jumpRightHeightDiff:" + jumpRightHeightDiff;
+        
+        String returnString = "canJumpLeft:" + this.canJumpLeft + ";  canJumpRight:" + this.canJumpRight + ";  canJumpAtAll:" + this.canJumpAtAll + "\n" 
+         + ";  jumpLeftDistance:" + ";  jumpLeftFuelNeeded:" + this.jumpLeftFuelNeeded + ";  jumpLeftTargetBuilding:" + this.jumpLeftTargetBuilding 
+         + ";  jumpLeftBuildingHeight:" + this.jumpLeftBuildingHeight + ";  jumpLeftHeightDiff:" + jumpLeftHeightDiff + "\n" 
+         + ";  jumpRightDistance:" + jumpRightDistance + ";  jumpRightFuelNeeded:" + this.jumpRightFuelNeeded + ";  jumpRightTargetBuilding:" + this.jumpRightTargetBuilding 
+         + ";  jumpRightBuildingHeight:" + this.jumpRightBuildingHeight + ";  jumpRightHeightDiff:" + jumpRightHeightDiff;
+
         return returnString;
+
     }
 
     // retrieve canJumpLeft boolean 
@@ -241,11 +249,4 @@ public class JumpCalcs
     {
         this.jumpRightHeightDiff = jumpRightHeightDiff;
     }
-
-
-
-
-
-
-
 }

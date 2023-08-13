@@ -1,9 +1,9 @@
 
-Thanks for playing Dave!
+Thanks for playing David!
 Congratulations on winning!
 
 Game Stats:
 --------------------------------
-Turns played: 9
-Fuel Cells Found: 2
+Turns played: 6
+Fuel Cells Found: 1
 

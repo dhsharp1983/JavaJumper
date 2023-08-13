@@ -1,0 +1,180 @@
+Log Initialised
+Building #: 1;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 2;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 3;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 4;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 5;  Height: 5;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 6;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 7;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 8;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 9;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 10;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false
+Building #: 11;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 12;  Height: 5;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 13;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 14;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+Building #: 15;  Height: 5;  HasExitPortal:true;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+
+=======================================================
+COMMENCE TURN 1
+Game Engine doJumpCalcs(): 
+canJumpLeft:false;  canJumpRight:true;  canJumpAtAll:true
+;  jumpLeftDistance:;  jumpLeftFuelNeeded:0;  jumpLeftTargetBuilding:0;  jumpLeftBuildingHeight:0;  jumpLeftHeightDiff:0
+;  jumpRightDistance:2;  jumpRightFuelNeeded:1;  jumpRightTargetBuilding:3;  jumpRightBuildingHeight:1;  jumpRightHeightDiff:1
+Turn:1;  PlayerOnBuilding:1;  jumpPackCharge:10
+Building #: 1;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 2;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 3;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 4;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 5;  Height: 5;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 6;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 7;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 8;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 9;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 10;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false
+Building #: 11;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 12;  Height: 5;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 13;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 14;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+Building #: 15;  Height: 5;  HasExitPortal:true;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+
+canJumpLeft:false;  canJumpRight:true;  canJumpAtAll:true
+;  jumpLeftDistance:;  jumpLeftFuelNeeded:0;  jumpLeftTargetBuilding:0;  jumpLeftBuildingHeight:0;  jumpLeftHeightDiff:0
+;  jumpRightDistance:2;  jumpRightFuelNeeded:1;  jumpRightTargetBuilding:3;  jumpRightBuildingHeight:1;  jumpRightHeightDiff:1
+acceptSRTurnInput(): user selected right
+class JumpPack: Battery depleted from 10 to 9
+executeJump(right): Turn:1;  PlayerOnBuilding:3;  jumpPackCharge:9
+Jumper Main received userMove: right
+class GameEngine: Frozen Building moved to Building #: 5;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:true
+class GameEngine: Police web moved to Building #: 4;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false
+=======================================================
+COMMENCE TURN 2
+Game Engine doJumpCalcs(): 
+canJumpLeft:false;  canJumpRight:true;  canJumpAtAll:true
+;  jumpLeftDistance:;  jumpLeftFuelNeeded:0;  jumpLeftTargetBuilding:0;  jumpLeftBuildingHeight:0;  jumpLeftHeightDiff:0
+;  jumpRightDistance:5;  jumpRightFuelNeeded:1;  jumpRightTargetBuilding:8;  jumpRightBuildingHeight:4;  jumpRightHeightDiff:1
+Turn:2;  PlayerOnBuilding:3;  jumpPackCharge:9
+Building #: 1;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 2;  Height: 4;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 3;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 4;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false
+Building #: 5;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:true
+Building #: 6;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 7;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 8;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 9;  Height: 2;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 10;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 11;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 12;  Height: 5;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 13;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 14;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 15;  Height: 4;  HasExitPortal:true;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+
+canJumpLeft:false;  canJumpRight:true;  canJumpAtAll:true
+;  jumpLeftDistance:;  jumpLeftFuelNeeded:0;  jumpLeftTargetBuilding:0;  jumpLeftBuildingHeight:0;  jumpLeftHeightDiff:0
+;  jumpRightDistance:5;  jumpRightFuelNeeded:1;  jumpRightTargetBuilding:8;  jumpRightBuildingHeight:4;  jumpRightHeightDiff:1
+acceptSRTurnInput(): user selected right
+class JumpPack: Battery depleted from 9 to 8
+executeJump(right): Turn:2;  PlayerOnBuilding:8;  jumpPackCharge:8
+Jumper Main received userMove: right
+class GameEngine: Frozen Building moved to Building #: 1;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+class GameEngine: Police web moved to Building #: 8;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false
+=======================================================
+COMMENCE TURN 3
+Game Engine doJumpCalcs(): 
+canJumpLeft:true;  canJumpRight:true;  canJumpAtAll:true
+;  jumpLeftDistance:;  jumpLeftFuelNeeded:7;  jumpLeftTargetBuilding:4;  jumpLeftBuildingHeight:2;  jumpLeftHeightDiff:2
+;  jumpRightDistance:4;  jumpRightFuelNeeded:8;  jumpRightTargetBuilding:12;  jumpRightBuildingHeight:1;  jumpRightHeightDiff:3
+Turn:3;  PlayerOnBuilding:8;  jumpPackCharge:8
+Building #: 1;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+Building #: 2;  Height: 5;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 3;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 4;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 5;  Height: 4;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 6;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 7;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 8;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false
+Building #: 9;  Height: 3;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 10;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 11;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 12;  Height: 1;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 13;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 14;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 15;  Height: 2;  HasExitPortal:true;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+
+canJumpLeft:true;  canJumpRight:true;  canJumpAtAll:true
+;  jumpLeftDistance:;  jumpLeftFuelNeeded:7;  jumpLeftTargetBuilding:4;  jumpLeftBuildingHeight:2;  jumpLeftHeightDiff:2
+;  jumpRightDistance:4;  jumpRightFuelNeeded:8;  jumpRightTargetBuilding:12;  jumpRightBuildingHeight:1;  jumpRightHeightDiff:3
+acceptLSRTurnInput(): user selected right
+class JumpPack: Battery depleted from 8 to 0
+Battery Charged from 0 to 5
+executeJump(right): Turn:3;  PlayerOnBuilding:12;  jumpPackCharge:5
+Jumper Main received userMove: right
+class GameEngine: Frozen Building moved to Building #: 15;  Height: 4;  HasExitPortal:true;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+class GameEngine: Police web moved to Building #: 7;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false
+class GameEnginerespawnFuelCells(): Fuel Cells added to buildings 9 8 10
+=======================================================
+COMMENCE TURN 4
+Game Engine doJumpCalcs(): 
+canJumpLeft:true;  canJumpRight:false;  canJumpAtAll:true
+;  jumpLeftDistance:;  jumpLeftFuelNeeded:2;  jumpLeftTargetBuilding:7;  jumpLeftBuildingHeight:3;  jumpLeftHeightDiff:2
+;  jumpRightDistance:0;  jumpRightFuelNeeded:0;  jumpRightTargetBuilding:0;  jumpRightBuildingHeight:0;  jumpRightHeightDiff:0
+Turn:4;  PlayerOnBuilding:12;  jumpPackCharge:5
+Building #: 1;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 2;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 3;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 4;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 5;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 6;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 7;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false
+Building #: 8;  Height: 4;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 9;  Height: 2;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 10;  Height: 4;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 11;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 12;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 13;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 14;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 15;  Height: 4;  HasExitPortal:true;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+
+canJumpLeft:true;  canJumpRight:false;  canJumpAtAll:true
+;  jumpLeftDistance:;  jumpLeftFuelNeeded:2;  jumpLeftTargetBuilding:7;  jumpLeftBuildingHeight:3;  jumpLeftHeightDiff:2
+;  jumpRightDistance:0;  jumpRightFuelNeeded:0;  jumpRightTargetBuilding:0;  jumpRightBuildingHeight:0;  jumpRightHeightDiff:0
+acceptLSTurnInput(): user selected skip
+class JumpPack: Battery depleted from 5 to 4
+skipTurn(): Turn:4;  PlayerOnBuilding:12;  jumpPackCharge:4
+executeJump(skip): Turn:4;  PlayerOnBuilding:12;  jumpPackCharge:4
+Jumper Main received userMove: skip
+class GameEngine: Frozen Building moved to Building #: 11;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+class GameEngine: Police web moved to Building #: 8;  Height: 2;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:true;  HasFrozen:false
+=======================================================
+COMMENCE TURN 5
+Game Engine doJumpCalcs(): 
+canJumpLeft:true;  canJumpRight:true;  canJumpAtAll:true
+;  jumpLeftDistance:;  jumpLeftFuelNeeded:1;  jumpLeftTargetBuilding:9;  jumpLeftBuildingHeight:4;  jumpLeftHeightDiff:1
+;  jumpRightDistance:3;  jumpRightFuelNeeded:1;  jumpRightTargetBuilding:15;  jumpRightBuildingHeight:4;  jumpRightHeightDiff:1
+Turn:5;  PlayerOnBuilding:12;  jumpPackCharge:4
+Building #: 1;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 2;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 3;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 4;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 5;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 6;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 7;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 8;  Height: 2;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:true;  HasFrozen:false
+Building #: 9;  Height: 4;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 10;  Height: 1;  HasExitPortal:false;  HasFuelCell:true;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 11;  Height: 4;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+Building #: 12;  Height: 3;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 13;  Height: 5;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 14;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+Building #: 15;  Height: 4;  HasExitPortal:true;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:false
+
+canJumpLeft:true;  canJumpRight:true;  canJumpAtAll:true
+;  jumpLeftDistance:;  jumpLeftFuelNeeded:1;  jumpLeftTargetBuilding:9;  jumpLeftBuildingHeight:4;  jumpLeftHeightDiff:1
+;  jumpRightDistance:3;  jumpRightFuelNeeded:1;  jumpRightTargetBuilding:15;  jumpRightBuildingHeight:4;  jumpRightHeightDiff:1
+acceptLSRTurnInput(): user selected right
+class JumpPack: Battery depleted from 4 to 3
+executeJump(right): Turn:5;  PlayerOnBuilding:15;  jumpPackCharge:3
+Jumper Main received userMove: right
+class GameEngine: Frozen Building moved to Building #: 11;  Height: 2;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:false;  HasFrozen:true
+class GameEngine: Police web moved to Building #: 3;  Height: 1;  HasExitPortal:false;  HasFuelCell:false;  HasPoliceWeb:true;  HasFrozen:false

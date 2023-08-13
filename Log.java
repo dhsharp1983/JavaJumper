@@ -11,7 +11,7 @@ import java.io.BufferedWriter;
 public class Log 
 {
     static File errorLogFile = new File("ErrorLog.txt");
-    static File fullLogFile = new File("VerboseLog.txt");
+    static File fullLogFile = new File("FullLog.txt");
     static String breakLine = "=======================================================";
     
     // adds a String entry to the Error log 

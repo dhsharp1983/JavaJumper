@@ -1,6 +1,6 @@
 // Class to define a single building. NOT the collective array.
 // Author: David Sharp
-// Version: 1
+// Version: 1.0
 
 public class Building
 {

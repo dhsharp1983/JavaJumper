@@ -1,8 +1,8 @@
 // Class to build graphics and print text
-// Inspriation for clearScreen method: https://www.javatpoint.com/how-to-clear-screen-in-java
 // Author: David Sharp
 // Version: 1.1 
 
+// Credit for clearScreen() ANSI code: https://www.javatpoint.com/how-to-clear-screen-in-java
 // ascii art credits: https://patorjk.com/software/taag/#p=display&h=0&v=0&f=ANSI%20Regular&t=%20Java%20%0AJumper 
 
 public class RenderDisplay 
@@ -29,6 +29,7 @@ public class RenderDisplay
         // welcomeScreen = "";
         // instructionScreen = "";
         // endScreen = "";
+        // other fields are constructed in their methods 
     }
 
     // clears the screen for frame display 
@@ -87,7 +88,7 @@ public class RenderDisplay
     // each element in the buildingGraphics array represents a single building (column).
     public void renderBuildingGraphics()
     {
-        buildingGraphics = new BuildingGraphic[16];
+        buildingGraphics = new BuildingGraphic[16]; // building 0 is default only, not used. Array index 1-15 in line with building numbers.
         boolean isPlayerOnBuilding = false;
 
         // set null building 0 - building 0 not used in practice 
@@ -129,7 +130,7 @@ public class RenderDisplay
         // set ground layer 
         buildingLines[0] = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
         // set remaining lines 
-        for (int line = 1; line < 14; line++)
+        for (int line = 1; line < 14; line++) // loop through buildingGraphics and print out contents as horizontal lines 
         {
             String content = "  ";
             for (int col = 1; col <= 15; col++)
@@ -147,26 +148,36 @@ public class RenderDisplay
         String fuelLeft = Integer.toString(jumper.getGameEngine().getJumpPack().getBatteryLevel());
         String targetLeft = Integer.toString(jumper.getGameEngine().getJumpCalcs().getJumpLeftTargetBuilding());
         String targetRight = Integer.toString(jumper.getGameEngine().getJumpCalcs().getJumpRightTargetBuilding());
-        if (targetLeft.equals("0")) {targetLeft = "";}
-        if (targetRight.equals("0")) {targetRight = "";}
+        String FuelLeft = Integer.toString(jumper.getGameEngine().getJumpCalcs().getJumpLeftFuelNeeded());
+        String FuelRight = Integer.toString(jumper.getGameEngine().getJumpCalcs().getJumpRightFuelNeeded());
+        if (targetLeft.equals("0")) {targetLeft = "N/A";}
+        if (targetRight.equals("0")) {targetRight = "N/A";}
         
-        this.topDisplayLines = new String[7];
-        topDisplayLines[0] = "                                 JAVA JUMPER!                                  ";
-        topDisplayLines[1] = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+        this.topDisplayLines = new String[8];
+        topDisplayLines[0] = "                                                                   ";
+        topDisplayLines[1] = "- - - - - - - - - - - - - - - - -JAVA JUMPER!- - - - - - - - - - - - - - - - - -";
         // topDisplayLines[2] = "                                                                               ";
         topDisplayLines[2] = "         Turn: " + turn + "                                                               ";
         topDisplayLines[3] = "    Fuel Left: " + fuelLeft + "                                                                ";
-        topDisplayLines[4] = "    Left Target Bld: " + targetLeft + "    Right Target Bld: " + targetRight;
-        topDisplayLines[5] = " " + messageInput;
+        topDisplayLines[4] = "    Left Target Building: " + targetLeft + "     Fuel Needed: " + fuelLeft;
+        topDisplayLines[5] = "    Right Target Building: " + targetRight + "    Right Target Bld: " + FuelRight;
+        topDisplayLines[6] = " " + messageInput;
         // topDisplayLines[7] = "                                                                               ";
-        topDisplayLines[6] = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+        topDisplayLines[7] = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     }
 
 
-    // prints welcome screen 
-    public void printWelcomeScreen()
+    // prints Title screen 
+    public void printWelcomeScreen1()
     {
         System.out.println(welcomeAsciiArt());
+        // System.out.println(instructions());
+    }
+
+    // prints welcome screen 
+    public void printWelcomeScreen2()
+    {
+        // System.out.println(welcomeAsciiArt());
         System.out.println(instructions());
     }
 

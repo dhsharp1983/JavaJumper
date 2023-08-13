@@ -44,8 +44,16 @@ public class Jumper
         JumpCalcs jumpCalcs = gameEngine.getJumpCalcs();
         String userMove = "";
 
-        // start the game 
-        renderDisplay.printWelcomeScreen();
+        // Print Title
+        renderDisplay.clearScreen();
+        renderDisplay.printWelcomeScreen1();
+        try 
+            {
+                TimeUnit.SECONDS.sleep(3);
+            } 
+            catch (Exception ignore) {};
+        renderDisplay.clearScreen();
+        renderDisplay.printWelcomeScreen2();
         player.inputPlayerName();
         jumper.startGame();
 
@@ -128,7 +136,7 @@ public class Jumper
             }
         } while (stopGame == false); // end gameplay loop when stopGame condition is met
 
-        // write to output file at end
+        // write to output file at end and print to screen 
         Log.writeEndGameOutput("outcome.txt",gameEngine.getPlayer().getPlayerName(),gameEngine.getGameTurn(),gameEngine.getPlayer().getFuelCellsFound(),winCondition,lossCondition);
         
     // end of Main     

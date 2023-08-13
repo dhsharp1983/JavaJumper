@@ -369,7 +369,7 @@ public class GameEngine
     // method to respawn fuel cells every 3rd turn and place on new building 
     public void respawnFuelCells()
     {
-        if (this.gameTurn % 3 == 0)
+        if ((this.gameTurn -1) % 3 == 0)
         {
             int targetBuilding2 = 0;
             int targetBuilding3 = 0;

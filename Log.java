@@ -61,7 +61,6 @@ public class Log
         } 
         catch (Exception e) 
         {
-            // System.out.println("Error Adding to Full Log: " + e.getMessage());
             Log.addToErrorLog("Error adding msg " + msg + " to full log: " + e.getMessage());
         }
         finally

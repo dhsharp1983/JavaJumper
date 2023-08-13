@@ -62,7 +62,6 @@ public class Jumper
         gameEngine.setGameTurn(1);
 
         // loop gameplay 
-        // for (int i = 0; i < 9999; i++)
         do
         {
             // log start
@@ -107,7 +106,6 @@ public class Jumper
             gameEngine.moveFrozenBuilding(RandomCalcs.selectRandomBuilding());
             gameEngine.moveWebTrap(RandomCalcs.selectRandomBuilding());
             gameEngine.respawnFuelCells();
-            // System.out.println(gameEngine.displayGameStats());
 
             // evaluate if player is on building 15 for exit portal, set win condition 
             if (gameEngine.getPlayerOnBuilding() == 15)
@@ -120,8 +118,6 @@ public class Jumper
                 renderDisplay.renderTopDisplayLines("");
                 renderDisplay.clearScreen();
                 renderDisplay.displayFrame();
-                // renderDisplay.displayInputText("You win!");
-                // System.exit(0);
             }
 
             // evaluate if player is out of fuel, set loss condition 
@@ -131,8 +127,6 @@ public class Jumper
                 winCondition = false;
                 lossCondition = true;
                 stopGame = true;
-                // renderDisplay.displayInputText("You lose");
-                // System.exit(0);
             }
         } while (stopGame == false); // end gameplay loop when stopGame condition is met
 

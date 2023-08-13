@@ -9,16 +9,12 @@ public class RenderDisplay
 {
     private Jumper jumper;
     private GameEngine gameEngine;
-    // private String welcomeScreen;
-    // private String instructionScreen;
-    // private String endScreen;
     private BuildingGraphic[] buildingGraphics;
     private String[] buildingLines;
     private String[] topDisplayLines;
     private final String[] PLAYER_CHARS = new String[]{"~o/","/| ","/ \\"};
     private final String[] EXITPORTAL_CHARS = new String[]{"@@@","@ @","@@@"};
     private final String[] BUILDING_CHARS = new String[]{"   ","---","===","***","#%#","~~~"};
-    // private final String[] FUEL_CHARS = new String[]{" % "};
 
     // primary client class has a limited default constructor only. 
     // Actively uses data in jumper object. Must be passed in.
@@ -26,10 +22,6 @@ public class RenderDisplay
     {
         this.jumper = jumper;
         this.gameEngine = jumper.getGameEngine();
-        // welcomeScreen = "";
-        // instructionScreen = "";
-        // endScreen = "";
-        // other fields are constructed in their methods 
     }
 
     // clears the screen for frame display 
@@ -156,13 +148,11 @@ public class RenderDisplay
         this.topDisplayLines = new String[8];
         topDisplayLines[0] = "                                                                   ";
         topDisplayLines[1] = "- - - - - - - - - - - - - - - - -JAVA JUMPER!- - - - - - - - - - - - - - - - - -";
-        // topDisplayLines[2] = "                                                                               ";
         topDisplayLines[2] = "         Turn: " + turn + "                                                               ";
         topDisplayLines[3] = "    Fuel Left: " + fuelLeft + "                                                                ";
         topDisplayLines[4] = "    Left Target Building: " + targetLeft + "     Fuel Needed: " + fuelLeft;
         topDisplayLines[5] = "    Right Target Building: " + targetRight + "    Right Target Bld: " + FuelRight;
         topDisplayLines[6] = " " + messageInput;
-        // topDisplayLines[7] = "                                                                               ";
         topDisplayLines[7] = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     }
 
@@ -197,24 +187,4 @@ public class RenderDisplay
 "                                                   \n";
     return javaJumper;
     }
-
-
-
-    // public String instructions()
-    // {
-    //     String instructions = ""+
-    //         "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-    //         "                                    INSTRUCTIONS                                 \n" +
-    //         "                                                                         @@@\n" +
-    //         "   Jump to the exit portal on the far building!   >>                     @ @\n" +
-    //         "                                                                    ===  @@@\n" +
-    //         "   Avoid the police web!! #%#                     >>                #%#  ===\n" +
-    //         "                                                               ===  #%#  ---\n" +
-    //         "   Avoid the frozen building!!  ***               >>           ***  #%#  ---\n" +
-    //         "                                                           @   ***  #%#  ---\n" +
-    //         "   Collect @ fuel cells for extra fuel.           >>      ===  ***  #%#  ---\n" +
-    //         "   Each one gives 5 points.                               ---  ***  #%#  ---\n" +
-    //         "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-    //     return instructions;
-    // }
 }

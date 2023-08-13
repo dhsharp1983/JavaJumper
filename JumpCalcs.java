@@ -40,21 +40,6 @@ public class JumpCalcs
         this.jumpRightHeightDiff = 0;
     }
 
-    // // non-default constructor - player always starts at left so some assumptions can be made 
-    // public JumpCalcs(int jumpDistance, int jumpRightFuelNeeded)
-    // {
-    //     this.canJumpLeft = false; // default ok 
-    //     this.canJumpRight = false; // default ok 
-    //     this.canJumpAtAll = false; // default ok 
-    //     this.jumpDistance = jumpDistance; // needed 
-    //     this.jumpLeftFuelNeeded = 0; // default ok 
-    //     this.jumpRightFuelNeeded = jumpRightFuelNeeded; // needed 
-    //     this.jumpLeftTargetBuilding = 0;
-    //     this.jumpRightTargetBuilding = 3;
-    //     this.jumpRightBuildingHeight = 1;
-    //     this.jumpLeftBuildingHeight = 0;
-    // }
-
     // non-default constructor - gigantic so not really used 
     public JumpCalcs(boolean canJumpLeft, boolean canJumpRight, boolean canJumpAtAll, int jumpDistance, 
     int jumpLeftFuelNeeded, int jumpRightFuelNeeded, int jumpLeftTargetBuilding, int jumpRightTargetBuilding,
@@ -77,13 +62,6 @@ public class JumpCalcs
     // displays values 
     public String display()
     {
-        // String returnString = "canJumpLeft:" + this.canJumpLeft + ";  canJumpRight:" + this.canJumpRight
-        //  + ";  canJumpAtAll:" + this.canJumpAtAll + ";  jumpLeftDistance:" + this.jumpLeftDistance + ";  jumpRightDistance:" + jumpRightDistance
-        //  + ";  jumpLeftFuelNeeded:" + this.jumpLeftFuelNeeded + ";  jumpRightFuelNeeded:" + this.jumpRightFuelNeeded 
-        //  + ";  jumpLeftTargetBuilding:" + this.jumpLeftTargetBuilding + ";  jumpRightTargetBuilding:" + this.jumpRightTargetBuilding 
-        //  + ";  jumpLeftBuildingHeight:" + this.jumpLeftBuildingHeight + ";  jumpRightBuildingHeight:" + this.jumpRightBuildingHeight
-        //  + ";  jumpLeftHeightDiff:" + jumpLeftHeightDiff + ";  jumpRightHeightDiff:" + jumpRightHeightDiff;
-        
         String returnString = "canJumpLeft:" + this.canJumpLeft + ";  canJumpRight:" + this.canJumpRight + ";  canJumpAtAll:" + this.canJumpAtAll + "\n" 
          + ";  jumpLeftDistance:" + ";  jumpLeftFuelNeeded:" + this.jumpLeftFuelNeeded + ";  jumpLeftTargetBuilding:" + this.jumpLeftTargetBuilding 
          + ";  jumpLeftBuildingHeight:" + this.jumpLeftBuildingHeight + ";  jumpLeftHeightDiff:" + jumpLeftHeightDiff + "\n" 
@@ -91,7 +69,6 @@ public class JumpCalcs
          + ";  jumpRightBuildingHeight:" + this.jumpRightBuildingHeight + ";  jumpRightHeightDiff:" + jumpRightHeightDiff;
 
         return returnString;
-
     }
 
     // retrieve canJumpLeft boolean 

@@ -136,9 +136,6 @@ public class Input
                     Log.addToErrorLog("acceptUserTurnInput(): userMove value not in acceptable input list: " + userMove);
                     userMove = "";
                 }
-                // if (userMove == "a") {userMove = "left";}
-                // if (userMove == "s") {userMove = "skip";}
-                // if (userMove == "d") {userMove = "right";}
             }
         } while (userMove == "");
         Log.addToFullLog("acceptLSRTurnInput(): user selected " + userMove);

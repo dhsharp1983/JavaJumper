@@ -64,7 +64,6 @@ public class GameEngine
             buildings[i].setHasFuelCell(Boolean.parseBoolean(parsedFileContents[i - 1].split(",")[2]));
             buildings[i].setHasPoliceWeb(Boolean.parseBoolean(parsedFileContents[i - 1].split(",")[3]));
             buildings[i].setHasFrozen(Boolean.parseBoolean(parsedFileContents[i - 1].split(",")[4]));
-            // System.out.println(buildings[i].display());
         }
         String mystring = displayBuildings();
         Log.addToFullLog(mystring);
@@ -77,7 +76,6 @@ public class GameEngine
         for (int i = 1; i < this.buildings.length; i++)
         {
             returnString += this.buildings[i].display() + "\n";
-            // System.out.println(this.buildings[i].display());
         }
         return returnString;
     }
@@ -173,22 +171,9 @@ public class GameEngine
             jumpCalcs.setJumpLeftBuildingHeight(leftTargetBuildingHeight);
             jumpCalcs.setJumpLeftHeightDiff(jumpLeftHeightDiff);
             jumpCalcs.setJumpLeftDistance(currentHeight);
-            // if (jumpLeftFuelNeeded <= jumpPack.getBatteryLevel())
-            // {
-            //     jumpCalcs.setJumpLeftFuelNeeded(jumpLeftFuelNeeded);
-            //     jumpCalcs.setJumpLeftTargetBuilding(leftTargetBuildingNumber);
-            //     jumpCalcs.setJumpLeftBuildingHeight(leftTargetBuildingHeight);
-            //     jumpCalcs.setJumpLeftHeightDiff(jumpLeftHeightDiff);
-            //     jumpCalcs.setJumpLeftDistance(currentHeight);
-            // }
             if (jumpLeftFuelNeeded > jumpPack.getBatteryLevel())
             {
                 jumpCalcs.setCanJumpLeft(false);
-                // jumpCalcs.setJumpLeftFuelNeeded(0);
-                // jumpCalcs.setJumpLeftTargetBuilding(0);
-                // jumpCalcs.setJumpLeftBuildingHeight(0);
-                // jumpCalcs.setJumpLeftHeightDiff(0);
-                // jumpCalcs.setJumpLeftDistance(0);
             }
         } 
         catch (Exception e) 
@@ -202,8 +187,6 @@ public class GameEngine
             jumpCalcs.setJumpLeftDistance(0);
         }
 
-        // calculate parameters for jumping RIGHT
-        // check battery has enough fuel left for jump. 
         try 
         {
             rightTargetBuildingNumber = playerOnBuilding + buildings[playerOnBuilding].getHeight();
@@ -215,22 +198,9 @@ public class GameEngine
             jumpCalcs.setJumpRightBuildingHeight(rightTargetBuildingHeight);
             jumpCalcs.setJumpRightHeightDiff(jumpRightHeightDiff);
             jumpCalcs.setJumpRightDistance(currentHeight);
-            // if (jumpRightFuelNeeded <= jumpPack.getBatteryLevel())
-            // {
-            //     jumpCalcs.setJumpRightFuelNeeded(jumpRightFuelNeeded);
-            //     jumpCalcs.setJumpRightTargetBuilding(rightTargetBuildingNumber);
-            //     jumpCalcs.setJumpRightBuildingHeight(rightTargetBuildingHeight);
-            //     jumpCalcs.setJumpRightHeightDiff(jumpRightHeightDiff);
-            //     jumpCalcs.setJumpRightDistance(currentHeight);
-            // }
             if (jumpRightFuelNeeded > jumpPack.getBatteryLevel())
             {
                 jumpCalcs.setCanJumpRight(false);
-                // jumpCalcs.setJumpRightFuelNeeded(0);
-                // jumpCalcs.setJumpRightTargetBuilding(0);
-                // jumpCalcs.setJumpRightBuildingHeight(0);
-                // jumpCalcs.setJumpRightHeightDiff(0);
-                // jumpCalcs.setJumpRightDistance(0);            
             }
 
         } 
@@ -249,12 +219,10 @@ public class GameEngine
         // player can't move if on frozen building
         if (buildings[playerOnBuilding].getHasFrozen() == true)
         {
-            // this.canJumpAtAll = false;
             jumpCalcs.setCanJumpAtAll(false);
         }
         else if (buildings[playerOnBuilding].getHasFrozen() != true)
         {
-            // this.canJumpAtAll = true;
             jumpCalcs.setCanJumpAtAll(true);
         }
 
